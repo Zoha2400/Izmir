@@ -7,14 +7,14 @@ import Booked from './ContentComponents/Booked'
 import Sold from './ContentComponents/Sold'
 import PotentialClients from './ContentComponents/PotentialClients'
 
-function Content({FreeTables, DiscussTables, BookedTables, SoldTables, PotentialClientsTables}) {
+function Content({FreeTables, DiscussTables, BookedTables, SoldTables, PotentialClientsTables, setShowWind}) {
 
 
   return (
     <div className='Content-wrapper'>
       <div className='Content'>
         <Routes>
-                <Route path="/tables/free" element={<Free data={FreeTables}/>} />
+                <Route path="/tables/free" element={<Free data={FreeTables} setShowWind={setShowWind}/>} />
                 <Route path="/tables/discuss" element={<Discuss data={DiscussTables}/>} />
                 <Route path="/tables/booked" element={<Booked data={BookedTables}/>} />
                 <Route path="/tables/sold" element={<Sold data={SoldTables}/>} />

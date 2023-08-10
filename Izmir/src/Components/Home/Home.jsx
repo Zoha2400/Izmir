@@ -9,6 +9,8 @@ import SideBar from './SideBar';
 
 function Home() {
 
+  const [showWind, setShowWind] = useState(false)
+
   const FreeTables = [{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: "46 m2", terrace: "4 m2"}, {num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: "46 m2", terrace: "4 m2"},{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: "46 m2", terrace: "4 m2"}, {num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: "46 m2", terrace: "4 m2"}]
   const DiscussTables = [{num: 1 ,seller: "Khayot Tangirov", area: "46 m2", block: "E", floor: "3", room:2}]
   const BookedTables = [{num: 1 ,client: "Khayot Tangirov", date: "15.05.2023", paid: '6.000.000', area: '45 m2', block: 'Б', floor: 3, room: 2}]
@@ -36,10 +38,11 @@ function Home() {
                  BookedTables={BookedTables}
                  SoldTables={SoldTables}
                  PotentialClientsTables={PotentialClientsTables}
+                 setShowWind={setShowWind}
         />
       </div>
 
-
+     {showWind ?  <div className='ShowWindowFlat'></div> :  <div className='ShowWindowFlat disactive'></div>}
 
     </div>
 

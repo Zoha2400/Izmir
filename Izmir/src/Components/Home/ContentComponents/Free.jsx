@@ -1,7 +1,9 @@
 import React from 'react'
 import './ContentComponents.scss'
 
-function Free({data}) {
+function Free({data, setShowWind}) {
+
+
   return (
     <div className='FreeLyFlats'>
 
@@ -29,7 +31,7 @@ function Free({data}) {
                         <td>{i.block}</td>
                         <td>{i.area}</td>
                         <td>{i.terrace}</td>
-                        <td className='btnTd'><button className='freely btn-table'>ПОСМОТРЕТЬ</button></td>       
+                        <td className='btnTd'><button onClick={() => {setShowWind(true)}} className='freely btn-table'>ПОСМОТРЕТЬ</button></td>       
                     </tr>
                 )
             })}

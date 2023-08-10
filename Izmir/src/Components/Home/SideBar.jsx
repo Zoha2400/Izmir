@@ -1,23 +1,33 @@
 import {useState} from 'react'
 import izmirIco from '../../assets/izmir.svg'
-import { BrowserRouter,Outlet, Link} from "react-router-dom";
+import { BrowserRouter,Outlet, Link, Routes, Route} from "react-router-dom";
 import './Home.scss'
+import Blocks from './SideBarContent/Blocks.jsx';
 
 function SideBar() {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedName, setSelectedName] = useState(''); // Имя, выбранное из списка
   
-    const names = ['Alice', 'Bob', 'Charlie', 'David']; // Список имен
+    const names = ['xonsaroy', 'goldebhouse', 'piramt', 'nestone']; // Список имен
 
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
 
-  const handleNameSelect = (name) => {
-    setSelectedName(name);
-    setIsOpen(false);
-  };
+    const handleNameSelect = (name) => {
+        setSelectedName(name);
+        setIsOpen(false);
+    };
+
+
+    const xonsaroy = ['A', 'Б', 'В', 'Г', 'Д', 'Е']
+    const goldebhouse = ['A', 'Б', 'В', 'Г', 'Д', 'Е']
+    const piramt = ['A', 'Б', 'В', 'Г', 'Д']
+    const nestone = ['A', 'Б', 'В', 'Г', 'Д', 'Е']
+
+    const floorXonsaroy = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
 
 
   return (
@@ -39,6 +49,15 @@ function SideBar() {
         </ul>
       )}
     </div>
+    
+    <Routes>
+        <Route path='/developer/xonsaroy' element={<Blocks blocks={xonsaroy} _selectedName={'xonsaroy'} floors={floorXonsaroy}/>}/>
+        <Route path='/developer/goldebhouse' element={<Blocks blocks={goldebhouse} _selectedName={'goldebhouse'}/>}/>
+        <Route path='/developer/piramt' element={<Blocks blocks={piramt} _selectedName={'piramt'}/>}/>
+        <Route path='/developer/nestone' element={<Blocks blocks={nestone} _selectedName={'nestone'}/>}/> 
+    </Routes>
+
+    <Outlet/>
   </div>
   )
 }
