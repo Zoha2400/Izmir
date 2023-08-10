@@ -1,58 +1,44 @@
 import { useState } from 'react'
 import './Home.scss'
-import izmirIco from '../../assets/izmir.svg'
-import { BrowserRouter,Outlet, Link} from "react-router-dom";
+import Dropdwm from './Drpopdwn';
+import Header from './Header';
+import Offers from './Offers';
+import Content from './Content';
+import SideBar from './SideBar';
 
 
 function Home() {
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedName, setSelectedName] = useState(''); // Имя, выбранное из списка
+  const FreeTables = [{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: "46 m2", terrace: "4 m2"}, {num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: "46 m2", terrace: "4 m2"},{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: "46 m2", terrace: "4 m2"}, {num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: "46 m2", terrace: "4 m2"}]
+  const DiscussTables = [{num: 1 ,seller: "Khayot Tangirov", area: "46 m2", block: "E", floor: "3", room:2}]
+  const BookedTables = [{num: 1 ,client: "Khayot Tangirov", date: "15.05.2023", paid: '6.000.000', area: '45 m2', block: 'Б', floor: 3, room: 2}]
+  const SoldTables = [{num: 1 ,client: "Khayot Tangirov", date: "11.05.2023", dateTill: '11.06.2023', area: '45 m2', block: 'Б', floor: 3, room: 2}]
+  const PotentialClientsTables = [{num: 1 ,client: "Khayot Tangirov", whenMoves: "11.05.2023", number: "+998 90 000 00 00"}]
 
-  const names = ['Alice', 'Bob', 'Charlie', 'David']; // Список имен
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleNameSelect = (name) => {
-    setSelectedName(name);
-    setIsOpen(false);
-  };
 
 
   return (
     <div className="Home-wrapper">
-      <div className="side-bar">
-        <div className="ico">
-          <Link to="/"><img src={izmirIco} alt="icon"/></Link>
-        </div>
+      <SideBar/>
 
-        <div className="dropdown-container">
-          <div className="dropdown-header" onClick={toggleDropdown}>
-            {selectedName || 'НОВОСТРОЙКА'}
-          </div>
-          {isOpen && (
-            <ul className="dropdown-list">
-              {names.map((name) => (
-                  <Link to={`/${"developer/" + name}`}  className="link-building" key={name} onClick={() => handleNameSelect(name)}>{name}</Link>
-              ))}              
-            </ul>
-          )}
-        </div>
+      <div className='Content-side'>
+        <Header/>     
+        <Offers
+                  fl={FreeTables.length}
+                  dl={DiscussTables.length}
+                  bl={BookedTables.length}
+                  sl={SoldTables.length}
+                  pcl={PotentialClientsTables.length}
+        
+        />
+        <Content FreeTables={FreeTables}
+                 DiscussTables={DiscussTables}
+                 BookedTables={BookedTables}
+                 SoldTables={SoldTables}
+                 PotentialClientsTables={PotentialClientsTables}
+        />
       </div>
 
-      <div className="header-wrapper">
-        <div className="header">
-         <input type="text" className="name-input" placeholder="Имя Фамилия" />
-          <div className="dropdowns">
-            <Dropdown placeholder="Ком." options={['Ком 1', 'Ком 2', 'Ком 3']} />
-            <Dropdown placeholder="Этаж" options={['Этаж 1', 'Этаж 2', 'Этаж 3']} />
-            <Dropdown placeholder="Блок" options={['Блок A', 'Блок B', 'Блок C']} />
-          </div>  
-          <div className="login">Логин</div>         
-        </div>
-      </div>
 
 
     </div>
@@ -60,17 +46,5 @@ function Home() {
   )
 }
 
-
-const Dropdown = ({ placeholder, options }) => {
-  return (
-    <div className="dropdown">
-      <select className="dropdown-select">
-        {options.map((option) => (
-          <option key={option} value={option}>{option}</option>
-        ))}
-      </select>
-    </div>
-  );
-};
 
 export default Home

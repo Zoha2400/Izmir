@@ -1,0 +1,120 @@
+.Title{
+    width: 930px;
+    font-size: 14px;
+    padding: 10px;
+    font-weight: 100;
+    display: flex;
+    justify-content: flex-start;
+    grid-gap: 40px;
+}
+
+.TableEl{
+    width: 930px;
+    font-size: 14px;
+    font-weight: 100;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.secondElTable{
+    margin-right: 50px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 5px; 
+    width: 100%;
+    //border-spacing: 5px; /* Задайте желаемый отступ между строками */
+  }
+  
+  thead {
+    margin-bottom: 10px; /* Добавление отступа между thead и tbody */
+  }
+
+  th{
+    font-size: 14px;
+    font-weight: 200;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 10px; /* Добавьте отступ внутри ячеек для разделения строк */
+  }
+
+  tbody{
+    padding: 0 20px; /* Добавление отступов по бокам */
+  }
+
+  td{
+    background-color: #ECECEC;
+  }
+
+  tr{
+    padding: 15px;
+  }
+
+  .btn-table{
+    font-size: 10px;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 8px 20px;
+    border-radius: 15px;
+  }
+
+
+  td:first-child, th:first-child {
+    padding: 5px 25px;
+    border-top-left-radius: 25px; /* Скругление верхнего левого угла */
+    border-bottom-left-radius: 25px; /* Скругление нижнего левого угла */
+  }
+  
+  td:last-child, th:last-child {
+    border-top-right-radius: 25px;/* Скругление верхнего правого угла */
+    border-bottom-right-radius: 25px; /* Скругление нижнего правого угла */
+  }
+
+  td:last-child, th:first-child{
+    width: 120px;
+  }
+
+  .btn-table{
+    width: 110px;
+    display: flex;
+    justify-content: center;
+}
+
+
+  .freely{
+    background-color: #3498db;
+  }
+  
+
+  .discussly{
+    background-color: #F0A83B;
+  }
+
+  .bookedbtn{
+    background-color: #803bf0;
+  }
+
+  .soldbtn{
+    background-color: #f03b3b;
+  }
+
+  .dissmiss{
+    background-color: gray;
+  }
+
+  .addbtn{
+    background-color: #1D6659;
+  }
+
+.BookedFlats{
+
+    .btnTd{
+        width: 80px;
+    }
+
+}

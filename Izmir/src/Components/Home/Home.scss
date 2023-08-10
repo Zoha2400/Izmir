@@ -5,7 +5,7 @@
 }
 
 .side-bar{
-	width: 350px;
+	width: 450px;
 	height: 100vh;
 	background-color: #1D6659;
 
@@ -38,9 +38,14 @@
  	
   width: 80%;
   padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 300;
   cursor: pointer;
   border-radius: 32px;
   background-color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
 }
 
@@ -81,15 +86,29 @@
  width: 100%;
   display: flex;
   justify-content: center;
+
+  a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+.Content-side{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
 }
 
 .header{
-	width: 90%;
+	width: 1000px;
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
 
-	input{
+	.name-input{
 		border: none;
 		outline: none;
 		padding: 10px;
@@ -116,12 +135,277 @@
 		border: none;
 		outline: none;
 		padding: 10px;
+    width: 120px;
 
 		color: #9E9E9E;
 		background-color: #ECECEC;
 		border-radius: 20px;
 
 		option{
-			border-radius: 15px
+			border-radius: 15px !important;
+      padding: 5px !important;
+      background-color: red;
 		}
 }
+
+.Dropdown-btn-wrapper{
+  position: relative;
+}
+
+.dropdown-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 120px;
+  border-radius: 20px;
+  color: #9E9E9E;
+  background-color: #ECECEC;
+
+}
+
+.dropdown-btn {
+  background-color: #f2f2f2;
+  position: absolute;
+  top: 40px;
+  width: 120px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 15px;
+  font-weight: 300;
+
+  left: 0;
+  cursor: pointer;
+
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  p{
+    transition: 0.5s ease-in-out;
+    padding: 10px;
+    width: 100%;
+  }
+
+  p:hover{
+
+    background-color: #9E9E9E;
+  }
+}
+
+
+.dropdowns-btns{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 10px;
+}
+
+
+.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #9E9E9E;
+  font-size: 17px;
+  font-weight: 900;
+  
+  cursor: pointer;
+
+  i{
+    font-weight:  900 !important;
+  }
+}
+
+.offers-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .offers{
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+
+
+
+.lable-of{
+  display: flex;
+  grid-gap: 5px;
+  font-size: 15px;
+}
+
+.round-checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  margin-right: 10px;
+  background-color: white;
+}
+
+
+
+.number-of{
+  border-radius: 10px;
+  padding: 0 15px;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkinside{
+  width: 0;
+  height: 0;
+  border-radius: 100%;
+}
+
+.Free{
+  color: #3498db;
+  .round-checkbox:checked + .checkmark {
+    background-color: #3498db;
+    border-color: #3498db;
+  }
+
+  .checkmark {
+    border: 2px solid #3498db;
+  }
+
+  .checkinside{
+    background-color: #3498db;
+  }
+  
+  p{
+    background-color: #3498db;
+  }
+}
+
+.Discuss{
+  color: #F0A83B;
+  .round-checkbox:checked + .checkmark {
+    background-color: #F0A83B;
+    border-color: #F0A83B;
+  }
+
+  .checkmark {
+    border: 2px solid #F0A83B;
+  }
+  
+
+  .checkinside{
+    background-color: #F0A83B;
+  }
+
+  p{
+    background-color: #F0A83B;
+  }
+}
+
+
+.Booked{
+  color: #803bf0;
+  .round-checkbox:checked + .checkmark {
+    background-color: #803bf0;
+    border-color: #803bf0;
+  }
+
+  .checkmark {
+    border: 2px solid #803bf0;
+  }
+  
+
+  .checkinside{
+    background-color: #803bf0;
+  }
+
+  p{
+    background-color: #803bf0;
+  }
+}
+
+
+.Sold{
+  color: #f03b3b;
+  .round-checkbox:checked + .checkmark {
+    background-color: #f03b3b;
+    border-color: #f03b3b;
+  }
+
+  .checkmark {
+    border: 2px solid #f03b3b;
+  }
+
+
+  .checkinside{
+    background-color: #f03b3b;
+  }
+  
+  p{
+    background-color: #f03b3b;
+  }
+}
+
+
+
+.Clients{
+  color: #3fb57b;
+  .round-checkbox:checked + .checkmark {
+    background-color: #3fb57b;
+    border-color: #3fb57b;
+  }
+
+  .checkmark {
+    border: 2px solid #3fb57b;
+  }
+  
+
+  .checkinside{
+    background-color: #3fb57b;
+  }
+
+  p{
+    background-color: #3fb57b;
+  }
+}
+
+.active{
+  .checkinside{
+    width: 10px !important;
+    height: 10px !important;
+  }
+}
+
+
+
+
+.Content-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  .Content{
+    width: 950px;
+  }
+}
+
