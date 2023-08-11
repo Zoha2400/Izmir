@@ -8,7 +8,7 @@ function Blocks({blocks, _selectedName, floors}) {
         <div className='blocks'>
         {blocks.map((i) => {
             return(
-                <NavLink to={ '/developer/' + _selectedName + '/blocks/' + i} activeClassName="activeChecked">
+                <NavLink to={ `/developer/${_selectedName}/${i}`} activeClassName="activeChecked">
                     <p key={i}>{i}</p>
                 </NavLink>
             )

@@ -3,6 +3,7 @@ import izmirIco from '../../assets/izmir.svg'
 import { BrowserRouter,Outlet, Link, Routes, Route} from "react-router-dom";
 import './Home.scss'
 import Blocks from './SideBarContent/Blocks.jsx';
+import Floors from './SideBarContent/Floors';
 
 function SideBar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,13 +21,40 @@ function SideBar() {
         setIsOpen(false);
     };
 
+    const blocksInfo = [
+        {name: 'xonsaroy', blocks: ['A', 'Б', 'В', 'Г', 'Д', 'Е'], floors: [
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        ]},
+        {name: 'goldebhouse', blocks: ['A', 'Б', 'В', 'Г', 'Д', 'Е'], floors: [
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        ]},
+        {name: 'piramt', blocks: ['A', 'Б', 'В', 'Г', 'Д'],floors: [
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+        ]},
+        {name: 'nestone', blocks: ['A', 'Б', 'В', 'Г', 'Д', 'Е'], floors: [
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        ]}
+    ]
 
-    const xonsaroy = ['A', 'Б', 'В', 'Г', 'Д', 'Е']
-    const goldebhouse = ['A', 'Б', 'В', 'Г', 'Д', 'Е']
-    const piramt = ['A', 'Б', 'В', 'Г', 'Д']
-    const nestone = ['A', 'Б', 'В', 'Г', 'Д', 'Е']
-
-    const floorXonsaroy = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 
 
@@ -43,21 +71,30 @@ function SideBar() {
       </div>
       {isOpen && (
         <ul className="dropdown-list">
-          {names.map((name) => (
-              <Link to={`/${"developer/" + name}`}  className="link-building" key={name} onClick={() => handleNameSelect(name)}>{name}</Link>
+          {blocksInfo.map((name) => (
+              <Link to={`/developer/${name.name}`}  className="link-building" key={name.name} onClick={() => handleNameSelect(name.name)}>{name.name}</Link>
           ))}              
         </ul>
       )}
     </div>
     
     <Routes>
-        <Route path='/developer/xonsaroy' element={<Blocks blocks={xonsaroy} _selectedName={'xonsaroy'} floors={floorXonsaroy}/>}/>
-        <Route path='/developer/goldebhouse' element={<Blocks blocks={goldebhouse} _selectedName={'goldebhouse'}/>}/>
-        <Route path='/developer/piramt' element={<Blocks blocks={piramt} _selectedName={'piramt'}/>}/>
-        <Route path='/developer/nestone' element={<Blocks blocks={nestone} _selectedName={'nestone'}/>}/> 
+        {blocksInfo.map((el) => {
+            return(
+            <Route path={`/developer/${el.name}/*`} element={<Blocks blocks={el.blocks} _selectedName={el.name}/>}/>
+            )
+        })}
     </Routes>
 
-    <Outlet/>
+    <Routes>
+        {blocksInfo.map((el) => {
+                return(
+                //    <Route path={`/developer/${el.name}/${elB}/*`} element={<Floors floors={el.floors} _selectedName={el.name} block={elB}/>}/>
+                <Route path={`/developer/${el.name}/Б`} element={<Floors floors={el.floors} _selectedName={el.name} block={'Б'}/>}/>
+                
+                )
+        })}
+    </Routes>
   </div>
   )
 }
