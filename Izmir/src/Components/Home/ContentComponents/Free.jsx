@@ -30,7 +30,7 @@ function Free({data, setShowWind, setDataFree}) {
                         <td>{i.block}</td>
                         <td>{i.area}</td>
                         <td>{i.terrace}</td>
-                        <td className='btnTd'><button onClick={() => {setDataFree(i), setShowWind(true)}} className='freely btn-table'>ПОСМОТРЕТЬ</button></td>       
+                        <td className='btnTd'><button onClick={() => {setDataFree(i); setShowWind(true)}} className='freely btn-table'>ПОСМОТРЕТЬ</button></td>       
                     </tr>
                 )
             })}
