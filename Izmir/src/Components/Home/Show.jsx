@@ -10,6 +10,9 @@ function Show({classInfo, dataFree}) {
           {dataFree?.room}х ком. {dataFree?.floor}-ЭТАЖ | {dataFree?.block}-БЛОК
         </p>
         <img src={dataFree?.img}/>
+
+        <p>СТОИМОСТЬ</p>
+        <p>{dataFree?.cost}USZ</p>
       </div>
     </div>
   )
