@@ -47,6 +47,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: none;
+  outline: none;
 
 }
 
@@ -94,6 +96,72 @@
     align-items: center;
   }
 }
+
+
+.blocks-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .blocks{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 5px;
+
+    .active{
+      background-color: white;
+      border-radius: 100%;
+      button{
+        color: black;
+      }
+    }
+
+    button{
+      width: 50px;
+      height: 50px;
+      background: transparent;
+      outline: none;
+      border: solid 1px white;
+      color: white;
+      border-radius: 100%;
+    }
+  }
+}
+
+.rooms{
+  width: 100%;
+  margin-top: 15px;
+
+  .room-list{
+    width: 100%;
+
+
+    .active{
+      .room{
+        color: black;
+        background-color: white;
+      }
+    }
+    
+    .room{
+      border-bottom: solid 1px white;
+      text-align: center;
+      color: white;
+      padding: 5px 0;
+    }
+  }
+}
+
+
+
+
+
+
+
+
 
 
 .Content-side{

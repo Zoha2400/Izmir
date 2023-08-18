@@ -1,102 +1,130 @@
 import {useState} from 'react'
 import izmirIco from '../../assets/izmir.svg'
-import { BrowserRouter,Outlet, Link, Routes, Route} from "react-router-dom";
+import { BrowserRouter,Outlet, Link, NavLink, Route} from "react-router-dom";
 import './Home.scss'
-import Blocks from './SideBarContent/Blocks.jsx';
-import Floors from './SideBarContent/Floors';
+import imgFlat from '../../assets/imageFlat.svg'
+
+const newsBlocksData = [
+  {
+    name: 'NeonTower',
+    blocks: ['А', 'Б', 'В', 'Г', 'Д', 'Е'],
+    rooms: [
+      {id: 1, status: "free", img: imgFlat},
+      {id: 2, status: "sold", img: imgFlat},
+      {id: 3, status: "booked", img: imgFlat},
+      {id: 4, status: "discuss", img: imgFlat}
+    ]
+  },
+  {
+    name: 'kr',
+    blocks: ['А', 'Б', 'В', 'Г', 'Д', 'Е'],
+    rooms: [
+      {id: 1, status: "free", img: imgFlat},
+      {id: 2, status: "sold", img: imgFlat},
+      {id: 3, status: "booked", img: imgFlat},
+      {id: 4, status: "discuss", img: imgFlat}
+    ]
+  },
+  {
+    name: 'hk',
+    blocks: ['А', 'Б', 'В', 'Г', 'Д', 'Е'],
+    rooms: [
+      {id: 1, status: "free", img: imgFlat},
+      {id: 2, status: "sold", img: imgFlat},
+      {id: 3, status: "booked", img: imgFlat},
+      {id: 4, status: "discuss", img: imgFlat}
+    ]
+  },
+  {
+    name: 'hh',
+    blocks: ['А', 'Б', 'В', 'Г', 'Д', 'Е'],
+    rooms: [
+      {id: 1, status: "free", img: imgFlat},
+      {id: 2, status: "sold", img: imgFlat},
+      {id: 3, status: "booked", img: imgFlat},
+      {id: 4, status: "discuss", img: imgFlat}
+    ]
+  },
+];
+function generateRooms() {
+  return Array.from({ length: 10 }, (_, index) => `${index + 1}`);
+}
+
 
 function SideBar() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedName, setSelectedName] = useState(''); // Имя, выбранное из списка
-  
-    const names = ['xonsaroy', 'goldebhouse', 'piramt', 'nestone']; // Список имен
+  const [selectedNews, setSelectedNews] = useState(null);
+  const [selectedBlock, setSelectedBlock] = useState(null);
+  const [selectedRoom, setSelectedRoom] = useState(null);
 
+  const handleNewsSelect = (newsName) => {
+    setSelectedNews(newsName);
+    setSelectedBlock(null);
+    setSelectedRoom(null);
+  };
 
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
+  const handleBlockSelect = (blockName) => {
+    setSelectedBlock(blockName);
+    setSelectedRoom(null);
+  };
 
-    const handleNameSelect = (name) => {
-        setSelectedName(name);
-        setIsOpen(false);
-    };
-
-    const blocksInfo = [
-        {name: 'xonsaroy', blocks: ['A', 'Б', 'В', 'Г', 'Д', 'Е'], floors: [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-        ]},
-        {name: 'goldebhouse', blocks: ['A', 'Б', 'В', 'Г', 'Д', 'Е'], floors: [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-        ]},
-        {name: 'piramt', blocks: ['A', 'Б', 'В', 'Г', 'Д'],floors: [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-        ]},
-        {name: 'nestone', blocks: ['A', 'Б', 'В', 'Г', 'Д', 'Е'], floors: [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-        ]}
-    ]
-
-
+  const handleRoomSelect = (roomId) => {
+    if (selectedRoom === roomId) {
+      setSelectedRoom(null);
+    } else {
+      setSelectedRoom(roomId);
+    }
+  };
 
 
   return (
     <div className="side-bar">
+
     <div className="ico">
       <Link to="/"><img src={izmirIco} alt="icon"/></Link>
     </div>
-
     <div className="dropdown-container">
-      <div className="dropdown-header" onClick={toggleDropdown}>
-        {selectedName || 'НОВОСТРОЙКА'}
-        <i class="bi bi-chevron-down"></i>
+        <select className='dropdown-header' onChange={(e) => handleNewsSelect(e.target.value)}>
+          {newsBlocksData.map((news) => (
+            <option key={news.name} value={news.name}>
+              {news.name}
+            </option>
+          ))}
+        </select>
       </div>
-      {isOpen && (
-        <ul className="dropdown-list">
-          {blocksInfo.map((name) => (
-              <Link to={`/developer/${name.name}`}  className="link-building" key={name.name} onClick={() => handleNameSelect(name.name)}>{name.name}</Link>
-          ))}              
-        </ul>
+      {selectedNews && (
+        <div className="blocks-wrapper">
+          <div className='blocks'>
+          {newsBlocksData.find((news) => news.name === selectedNews).blocks.map((block) => (
+            <NavLink to={`/${selectedNews}/${block}`} activeClassName="active">
+              <button
+                key={block}
+                className={`block-button`}
+                onClick={() => handleBlockSelect(block)}
+              >
+                {block}
+              </button>
+            </NavLink>
+
+          ))}
+          </div>
+        </div>
+      )}
+      {selectedBlock && (
+        <div className="rooms">
+          <div className="room-list">
+            {generateRooms().map((room, index) => (
+            <NavLink to={`/${selectedNews}/${selectedBlock}/${room}`} activeClassName="active"> 
+              <div key={index} className="room">
+                {room}
+              </div>
+            </NavLink>
+
+            ))}
+          </div>
+        </div>
       )}
     </div>
-    
-    <Routes>
-        {blocksInfo.map((el) => {
-            return(
-            <Route path={`/developer/${el.name}/*`} element={<Blocks blocks={el.blocks} _selectedName={el.name}/>}/>
-            )
-        })}
-    </Routes>
-
-    <Routes>
-        {blocksInfo.map((el) => {
-                return(
-                //    <Route path={`/developer/${el.name}/${elB}/*`} element={<Floors floors={el.floors} _selectedName={el.name} block={elB}/>}/>
-                <Route path={`/developer/${el.name}/Б`} element={<Floors floors={el.floors} _selectedName={el.name} block={'Б'}/>}/>
-                
-                )
-        })}
-    </Routes>
-  </div>
-  )
+  );
 }
 
 export default SideBar
