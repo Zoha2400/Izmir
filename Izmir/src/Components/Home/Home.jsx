@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Home.scss'
 import Dropdwm from './Drpopdwn';
 import Header from './Header';
@@ -11,6 +11,20 @@ import imgBlock from '../../assets/A-block.svg'
 
 
 function Home() {
+
+  // const [existData, setExistData] = useState('');
+
+  // useEffect(() => {
+  //   fetch('http://89.38.131.46:1808/api/free_tables/')
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       setExistData(data);
+  //     });
+  // }, [])
+
+  // console.log(existData)
 
   const [showWind, setShowWind] = useState(false)
   const [dataFree, setDataFree] = useState()
