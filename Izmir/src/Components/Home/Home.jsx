@@ -11,19 +11,19 @@ import imgFlat from '../../assets/imageFlat.svg'
 
 function Home() {
 
-  const [existData, setExistData] = useState('');
+  // const [existData, setExistData] = useState('');
 
-  useEffect(() => {
-    fetch('http://89.38.131.46:1808/api/free_tables/')
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setExistData(data);
-      });
-  }, [])
+  // useEffect(() => {
+  //   fetch('http://89.38.131.46:1808/api/free_tables/')
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       setExistData(data);
+  //     });
+  // }, [])
 
-  console.log(existData)
+  // console.log(existData)
 
   const [showWind, setShowWind] = useState(false)
   const [dataFree, setDataFree] = useState()

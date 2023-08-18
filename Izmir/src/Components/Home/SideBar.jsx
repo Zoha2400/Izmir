@@ -1,60 +1,58 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import izmirIco from '../../assets/izmir.svg'
-import { BrowserRouter,Outlet, Link, NavLink, Route} from "react-router-dom";
+import { BrowserRouter,Outlet, Link, NavLink, Route, Routes, Navigate } from "react-router-dom";
 import './Home.scss'
 import imgFlat from '../../assets/imageFlat.svg'
 
-const newsBlocksData = [
-  {
-    name: 'NeonTower',
-    blocks: ['А', 'Б', 'В', 'Г', 'Д', 'Е'],
-    rooms: [
-      {id: 1, status: "free", img: imgFlat},
-      {id: 2, status: "sold", img: imgFlat},
-      {id: 3, status: "booked", img: imgFlat},
-      {id: 4, status: "discuss", img: imgFlat}
-    ]
-  },
-  {
-    name: 'kr',
-    blocks: ['А', 'Б', 'В', 'Г', 'Д', 'Е'],
-    rooms: [
-      {id: 1, status: "free", img: imgFlat},
-      {id: 2, status: "sold", img: imgFlat},
-      {id: 3, status: "booked", img: imgFlat},
-      {id: 4, status: "discuss", img: imgFlat}
-    ]
-  },
-  {
-    name: 'hk',
-    blocks: ['А', 'Б', 'В', 'Г', 'Д', 'Е'],
-    rooms: [
-      {id: 1, status: "free", img: imgFlat},
-      {id: 2, status: "sold", img: imgFlat},
-      {id: 3, status: "booked", img: imgFlat},
-      {id: 4, status: "discuss", img: imgFlat}
-    ]
-  },
-  {
-    name: 'hh',
-    blocks: ['А', 'Б', 'В', 'Г', 'Д', 'Е'],
-    rooms: [
-      {id: 1, status: "free", img: imgFlat},
-      {id: 2, status: "sold", img: imgFlat},
-      {id: 3, status: "booked", img: imgFlat},
-      {id: 4, status: "discuss", img: imgFlat}
-    ]
-  },
-];
-function generateRooms() {
-  return Array.from({ length: 10 }, (_, index) => `${index + 1}`);
-}
 
 
 function SideBar() {
+
+  const [blocksServ, setBlocksServ] = useState();
+
+  useEffect(() => {
+    fetch('http://89.38.131.46:1808/api/blocks/')
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      setBlocksServ(data);
+      console.log(data);
+    });
+  }, []);
+
+  const newsBlocksData = [
+    {
+      name: 'NeonTower',
+      blocks: blocksServ,
+      rooms: [
+        {id: 1, status: "free", img: imgFlat},
+        {id: 2, status: "sold", img: imgFlat},
+        {id: 3, status: "booked", img: imgFlat},
+        {id: 4, status: "discuss", img: imgFlat}
+      ]
+    },
+    {
+      name: 'Xonsaroy',
+      blocks: blocksServ,
+      rooms: [
+        {id: 1, status: "free", img: imgFlat},
+        {id: 2, status: "sold", img: imgFlat},
+        {id: 3, status: "booked", img: imgFlat},
+        {id: 4, status: "discuss", img: imgFlat}
+      ]
+    },
+  ];
+  function generateRooms() {
+    return Array.from({ length: 10 }, (_, index) => `${index + 1}`);
+  }
+
+
+
   const [selectedNews, setSelectedNews] = useState(null);
   const [selectedBlock, setSelectedBlock] = useState(null);
   const [selectedRoom, setSelectedRoom] = useState(null);
+
 
   const handleNewsSelect = (newsName) => {
     setSelectedNews(newsName);
@@ -78,30 +76,34 @@ function SideBar() {
 
   return (
     <div className="side-bar">
+      
+      <Routes>
+      <Route path='/' element={ <Navigate to={`/${newsBlocksData[0].name}`}/>}/>
+    </Routes>
 
     <div className="ico">
       <Link to="/"><img src={izmirIco} alt="icon"/></Link>
     </div>
     <div className="dropdown-container">
-        <select className='dropdown-header' onChange={(e) => handleNewsSelect(e.target.value)}>
-          {newsBlocksData.map((news) => (
-            <option key={news.name} value={news.name}>
-              {news.name}
-            </option>
-          ))}
-        </select>
+          <select className='dropdown-header' onChange={(e) => handleNewsSelect(e.target.value)}>
+            {newsBlocksData.map((news) => (
+              <option key={news.name} value={news.name}>
+                {news.name}
+              </option>
+            ))}
+          </select>
       </div>
       {selectedNews && (
         <div className="blocks-wrapper">
           <div className='blocks'>
           {newsBlocksData.find((news) => news.name === selectedNews).blocks.map((block) => (
-            <NavLink to={`/${selectedNews}/${block}`} activeClassName="active">
+            <NavLink to={`/${selectedNews}/${block.address}`} activeClassName="active">
               <button
-                key={block}
+                key={block.address}
                 className={`block-button`}
-                onClick={() => handleBlockSelect(block)}
+                onClick={() => handleBlockSelect(block.address)}
               >
-                {block}
+                {block.address}
               </button>
             </NavLink>
 
