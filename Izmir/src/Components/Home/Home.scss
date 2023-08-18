@@ -47,7 +47,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  border: none;
+  outline: none;
 }
 
 .dropdown-list {
@@ -94,6 +95,97 @@
     align-items: center;
   }
 }
+
+.blocks-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blocks{
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  button{
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      border: solid 1px white;
+      color: white;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .active{
+          color: black;
+          background-color: white;
+          border-radius: 100%;
+          
+          button{
+            color: black!important;
+          }
+  }
+}
+
+.rooms{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+
+  .room-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .room{
+      width: 100%;
+      padding: 5px;
+      text-align: center;
+      border-bottom: solid white 1px;
+      color: white;
+    }
+    
+    a{
+      width: 100%;
+    }
+
+    .active{
+      background-color: white;
+      .room{
+        color: black !important;
+      }
+    }
+
+    .settled{
+      color: black;
+      background-color: white;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .Content-side{
@@ -413,7 +505,7 @@
 
 
 .ShowWindowFlat-wrapper{
-  width: 460px;
+  width: 430px;
   height: 100vh;
   background-color: white;
   position: absolute;
@@ -422,6 +514,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  img{
+    width: 95%;
+    height: auto;
+    margin: 30px 0;
+  }
 }
 
 .ShowWindowFlat{

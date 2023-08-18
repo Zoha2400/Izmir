@@ -7,7 +7,7 @@ import Booked from './ContentComponents/Booked'
 import Sold from './ContentComponents/Sold'
 import PotentialClients from './ContentComponents/PotentialClients'
 
-function Content({FreeTables, DiscussTables, BookedTables, SoldTables, PotentialClientsTables, setShowWind, setDataFree}) {
+function Content({FreeTables, DiscussTables, BookedTables, SoldTables, PotentialClientsTables, setShowWind, setDataFree, newsBlocksData}) {
 
 
   return (
@@ -19,6 +19,9 @@ function Content({FreeTables, DiscussTables, BookedTables, SoldTables, Potential
                 <Route path="/tables/booked" element={<Booked data={BookedTables}/>} />
                 <Route path="/tables/sold" element={<Sold data={SoldTables}/>} />
                 <Route path="/tables/clients" element={<PotentialClients data={PotentialClientsTables}/>} />
+
+                
+        
         </Routes>
       </div>
     </div>
