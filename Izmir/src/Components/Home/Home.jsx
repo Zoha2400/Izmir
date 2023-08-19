@@ -8,7 +8,7 @@ import SideBar from './SideBar';
 import Show from './Show';
 import imgFlat from '../../assets/flat.png'
 import imgBlock from '../../assets/A-block.svg'
-
+import imgDev from '../../assets/dev.svg'
 
 function Home() {
 
@@ -28,6 +28,7 @@ function Home() {
 
   const [showWind, setShowWind] = useState(false)
   const [dataFree, setDataFree] = useState()
+  const [svgData, setSvgData] = useState()
 
   const FreeTables = [{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: "46 m2", terrace: "4 m2", img: imgFlat, cost: 380000000 ,status:'free'},]
   const DiscussTables = [{num: 1 ,seller: "Khayot Tdangirov", area: "46 m2", block: "E", floor: "3", room:2,  img: imgFlat, status:'discussing'}]
@@ -39,50 +40,119 @@ function Home() {
   const newsBlocksData = [
     {
       name: 'Xonsaroy',
-      blocks: [{name: 'А', img: imgBlock}, {name: 'Б', img: imgBlock}, {name: 'В', img: imgBlock}, {name: 'Г', img: imgBlock}, {name: 'Д', img: imgBlock}, {name: 'Е', img: imgBlock}],
-      rooms:  [
-        {num: 1, state: 'free', img: imgFlat},
-        {num: 2, state: 'sold', img: imgFlat},
-        {num: 3, state: 'discuss', img: imgFlat},
-        {num: 4, state: 'booked', img: imgFlat}
-      ]
+      img: imgDev,
+      id: 1,
+      blocks: [
+        {name: 'А', img: imgBlock, id: 1, 
+        rooms:  [
+          {num: 1, state: 'free', img: imgFlat},
+          {num: 2, state: 'sold', img: imgFlat},
+          {num: 3, state: 'discuss', img: imgFlat},
+          {num: 4, state: 'booked', img: imgFlat}
+        ]
+        }, 
+        {name: 'Б', img: imgBlock, id: 2,
+        rooms:  [
+          {num: 1, state: 'free', img: imgFlat},
+          {num: 2, state: 'sold', img: imgFlat},
+          {num: 3, state: 'discuss', img: imgFlat},
+          {num: 4, state: 'booked', img: imgFlat}
+        ]
+        }, 
+        {name: 'В', img: imgBlock, id: 3,
+        rooms:  [
+          {num: 1, state: 'free', img: imgFlat},
+          {num: 2, state: 'sold', img: imgFlat},
+          {num: 3, state: 'discuss', img: imgFlat},
+          {num: 4, state: 'booked', img: imgFlat}
+        ]
+        }, 
+        {name: 'Г', img: imgBlock, id: 4,
+        rooms:  [
+          {num: 1, state: 'free', img: imgFlat},
+          {num: 2, state: 'sold', img: imgFlat},
+          {num: 3, state: 'discuss', img: imgFlat},
+          {num: 4, state: 'booked', img: imgFlat}
+        ]
+        }, 
+        {name: 'Д', img: imgBlock, id: 5,
+        rooms:  [
+          {num: 1, state: 'free', img: imgFlat},
+          {num: 2, state: 'sold', img: imgFlat},
+          {num: 3, state: 'discuss', img: imgFlat},
+          {num: 4, state: 'booked', img: imgFlat}
+        ]
+        }, 
+        {name: 'Е', img: imgBlock, id: 6,
+        rooms:  [
+          {num: 1, state: 'free', img: imgFlat},
+          {num: 2, state: 'sold', img: imgFlat},
+          {num: 3, state: 'discuss', img: imgFlat},
+          {num: 4, state: 'booked', img: imgFlat}
+        ]
+        }],
+  
     },
     {
-      name: 'Goldebhouse',
-      blocks: [{name: 'А', img: imgBlock}, {name: 'Б', img: imgBlock}, {name: 'В', img: imgBlock}, {name: 'Г', img: imgBlock}, {name: 'Д', img: imgBlock}, {name: 'Е', img: imgBlock}],
-      rooms: [
-        {num: 1, state: 'free', img: imgFlat},
-        {num: 2, state: 'sold', img: imgFlat},
-        {num: 3, state: 'discuss', img: imgFlat},
-        {num: 4, state: 'booked', img: imgFlat}
-      ]
-    },
-    {
-      name: 'Piramt',
-      blocks: [{name: 'А', img: imgBlock}, {name: 'Б', img: imgBlock}, {name: 'В', img: imgBlock}, {name: 'Г', img: imgBlock}, {name: 'Д', img: imgBlock}, {name: 'Е', img: imgBlock}],
-      rooms:  [
-        {num: 1, state: 'free', img: imgFlat},
-        {num: 2, state: 'sold', img: imgFlat},
-        {num: 3, state: 'discuss', img: imgFlat},
-        {num: 4, state: 'booked', img: imgFlat}
-      ]
-    },
-    {
-      name: 'Nestone',
-      blocks: [{name: 'А', img: imgBlock}, {name: 'Б', img: imgBlock}, {name: 'В', img: imgBlock}, {name: 'Г', img: imgBlock}, {name: 'Д', img: imgBlock}, {name: 'Е', img: imgBlock}],
-      rooms:  [
-        {num: 1, state: 'free', img: imgFlat},
-        {num: 2, state: 'sold', img: imgFlat},
-        {num: 3, state: 'discuss', img: imgFlat},
-        {num: 4, state: 'booked', img: imgFlat}
-      ]
-    },
+      name: 'NeonBuild',
+      img: imgDev,
+      id: 2,
+      blocks: [
+        {name: 'А', img: imgBlock, id: 1, 
+        rooms:  [
+          {num: 1, state: 'free', img: imgFlat},
+          {num: 2, state: 'sold', img: imgFlat},
+          {num: 3, state: 'discuss', img: imgFlat},
+          {num: 4, state: 'booked', img: imgFlat}
+        ]
+        }, 
+        {name: 'Б', img: imgBlock, id: 2,
+        rooms:  [
+          {num: 1, state: 'free', img: imgFlat},
+          {num: 2, state: 'sold', img: imgFlat},
+          {num: 3, state: 'discuss', img: imgFlat},
+          {num: 4, state: 'booked', img: imgFlat}
+        ]
+        }, 
+        {name: 'В', img: imgBlock, id: 3,
+        rooms:  [
+          {num: 1, state: 'free', img: imgFlat},
+          {num: 2, state: 'sold', img: imgFlat},
+          {num: 3, state: 'discuss', img: imgFlat},
+          {num: 4, state: 'booked', img: imgFlat}
+        ]
+        }, 
+        {name: 'Г', img: imgBlock, id: 4,
+        rooms:  [
+          {num: 1, state: 'free', img: imgFlat},
+          {num: 2, state: 'sold', img: imgFlat},
+          {num: 3, state: 'discuss', img: imgFlat},
+          {num: 4, state: 'booked', img: imgFlat}
+        ]
+        }, 
+        {name: 'Д', img: imgBlock, id: 5,
+        rooms:  [
+          {num: 1, state: 'free', img: imgFlat},
+          {num: 2, state: 'sold', img: imgFlat},
+          {num: 3, state: 'discuss', img: imgFlat},
+          {num: 4, state: 'booked', img: imgFlat}
+        ]
+        }, 
+        {name: 'Е', img: imgBlock, id: 6,
+        rooms:  [
+          {num: 1, state: 'free', img: imgFlat},
+          {num: 2, state: 'sold', img: imgFlat},
+          {num: 3, state: 'discuss', img: imgFlat},
+          {num: 4, state: 'booked', img: imgFlat}
+        ]
+        }],
+    }
   ];
   
 
   return (
     <div className="Home-wrapper">
-      <SideBar data={newsBlocksData}/>
+      <SideBar data={newsBlocksData} setSvg={setSvgData}/>
 
       <div className='Content-side'>
         <Header/>     
@@ -101,7 +171,7 @@ function Home() {
                  PotentialClientsTables={PotentialClientsTables}
                  setShowWind={setShowWind}
                  setDataFree={setDataFree}
-                 newsBlocksData={newsBlocksData}
+                 data={newsBlocksData}
         />
       </div>
 

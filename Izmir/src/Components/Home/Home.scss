@@ -49,10 +49,6 @@
   align-items: center;
   border: none;
   outline: none;
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 }
 
 .dropdown-list {
@@ -575,7 +571,7 @@
 
 
 .ShowWindowFlat-wrapper{
-  width: 430px;
+  width: 370px;
   height: 100vh;
   background-color: white;
   position: absolute;
@@ -586,14 +582,14 @@
   align-items: center;
 
   img{
-    width: 95%;
+    width: 100%;
     height: auto;
     margin: 30px 0;
   }
 }
 
 .ShowWindowFlat{
-  width: 90%;
+  width: 80%;
   height: 95%;
   display: flex;
   align-items: flex-start;

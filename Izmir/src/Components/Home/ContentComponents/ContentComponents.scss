@@ -118,3 +118,26 @@ table {
     }
 
 }
+
+
+.main-show-content-wrap{
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .main-show-content{
+    width: 600px;
+    height: 600px;
+     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      height: 100%;
+    }
+  }
+}
