@@ -3,8 +3,11 @@ import izmirIco from '../../assets/izmir.svg'
 import { BrowserRouter,Outlet, Link, NavLink, Route} from "react-router-dom";
 import './Home.scss'
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-function SideBar({data, setSvg}) {
+function SideBar({setSvg}) {
+
+  const data = useSelector(state => state.data.data);
 
   const newsBlocksData = data;
 
