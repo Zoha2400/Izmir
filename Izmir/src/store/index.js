@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit';
-import izmirReducer from './izmirSlice';
+import izmirReducer from './dataIzmirSlice';
 
 export default configureStore({
     reducer: {
