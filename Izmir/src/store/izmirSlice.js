@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import imgFlat from '../assets/flat.png'
+import imgFlat from '../assets/imageFlat.svg'
 import imgBlock from '../assets/A-block.svg'
 import imgDev from '../assets/dev.svg'
 

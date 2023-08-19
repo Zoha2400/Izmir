@@ -35,6 +35,7 @@ function SideBar({setSvg}) {
   useEffect(() => {
     if (data[0]) {
       navigate(`/${data[0].name}`);
+      setSelectedNews(data[0].name);
     }
   }, []);
 
