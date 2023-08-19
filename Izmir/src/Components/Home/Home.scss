@@ -582,6 +582,10 @@
   align-items: center;
   flex-direction: column;
   padding: 15px 0;
+  transition:  0.4s ease-in-out;
+  *{
+    transition:  0.2s ease-in-out;
+  }
 
 
   
@@ -710,7 +714,7 @@
 }
 
 .disactive{
-  display: none !important;
+  display: none;
 }
 
 .darker{
@@ -745,5 +749,26 @@
 
   .unlocked{
     background-color: orange;
+  }
+}
+
+.showBigWrap{
+  width: 1000px !important;
+}
+
+.ClosedBtnFormer{
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  .СloseBtn{
+    width: 180px;
+    border: none;
+    outline: none;
+    padding: 5px 0;
+    border-radius: 35px;
+    font-size: 20px;
+    color: white;
+    font-weight: 900;
+    background-color: rgb(250, 48, 48);
   }
 }
