@@ -12,26 +12,27 @@ import imgDev from '../../assets/dev.svg'
 
 function Home() {
 
-  const [existData, setExistData] = useState('');
+  // const [existData, setExistData] = useState('');
 
-  useEffect(() => {
-    fetch('http://89.38.131.46:1808/api/all_tables/')
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setExistData(data);
-      });
-  }, [])
+  // useEffect(() => {
+  //   fetch('http://89.38.131.46:1808/api/all_tables/')
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       setExistData(data);
+  //     });
+  // }, [])
 
-  console.log(existData)
+
 
   //http://89.38.131.46:1808/api/all_tables/
 
   const [showWind, setShowWind] = useState(false)
   const [dataFree, setDataFree] = useState()
   const [svgData, setSvgData] = useState()
-
+  // const FreeTables = [];
+  // FreeTables.push(existData.filter((el) => el.status == 'free'));
   const FreeTables = [{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: "46 m2", terrace: "4 m2", img: imgFlat, cost: 380000000 ,status:'free'},]
   const DiscussTables = [{num: 1 ,seller: "Khayot Tdangirov", area: "46 m2", block: "E", floor: "3", room:2,  img: imgFlat, status:'discussing'}]
   const BookedTables = [{num: 1 ,client: "Khayot Tangirov", date: "15.05.2023", paid: '6.000.000', area: '45 m2', block: 'Б', floor: 3, room: 2,  img: imgFlat, status:'booked'}]
