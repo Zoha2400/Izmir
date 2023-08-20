@@ -7,6 +7,7 @@ function Show({classInfo, dataFree}) {
 
   const [locked, setLocked] = useState(true);
   const [imageFull, setImageFull] = useState(false);
+  const [formed, setFormed] = useState(false);
 
   const toggleLock = () => {
     setLocked(!locked);
@@ -93,12 +94,18 @@ function Show({classInfo, dataFree}) {
                     </div>
                   )}
                 </div>
-
-                <p className='cost'><span>{dataFree?.cost - (dataFree?.cost/100 * selectedDiscount/10)}</span> USZ</p>
+                  
+                  {formed ? (
+                    <>
+                      <p className='cost'>Общая сумма <span>{dataFree?.cost - (dataFree?.cost/100 * selectedDiscount/10)}</span>UZS</p>
+                    </>
+                  ) : (
+                  <p className='cost'><span>{dataFree?.cost - (dataFree?.cost/100 * selectedDiscount/10)}</span>UZS</p>
+                  )}
                 {/* <span>Скидка {selectedDiscount/10}%</span> */}
               </div>
               <div className='btnFormBook'>
-                <button className='FormBtn'>ОФОРМИТЬ</button>
+                <button className='FormBtn' onClick={() => {setFormed(true)}}>ОФОРМИТЬ</button>
                 <button className='BookBtn'>БРОНИРОВАТЬ</button>
               </div>
             </div>
