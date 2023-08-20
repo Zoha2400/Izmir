@@ -7,7 +7,7 @@ import LogIn from './LogIn';
 
 function App() {
 
-  const [loging, setLoging] = useState(true);
+  const [loging, setLoging] = useState(false);
 
  
   return (
