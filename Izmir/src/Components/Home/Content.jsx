@@ -7,10 +7,11 @@ import Booked from './ContentComponents/Booked'
 import Sold from './ContentComponents/Sold'
 import PotentialClients from './ContentComponents/PotentialClients'
 import ShowContent from './ContentComponents/ShowContent'
+import { useSelector } from 'react-redux'
 
-function Content({FreeTables, DiscussTables, BookedTables, SoldTables, PotentialClientsTables, setShowWind, setDataFree, data}) {
+function Content({FreeTables, DiscussTables, BookedTables, SoldTables, PotentialClientsTables, setShowWind, setDataFree}) {
 
-  console.log(data)
+  const data = useSelector(state => state.data.data);
 
   return (
     <div className='Content-wrapper'>

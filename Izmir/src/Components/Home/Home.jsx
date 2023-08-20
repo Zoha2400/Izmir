@@ -12,19 +12,21 @@ import imgDev from '../../assets/dev.svg'
 
 function Home() {
 
-  // const [existData, setExistData] = useState('');
+  const [existData, setExistData] = useState('');
 
-  // useEffect(() => {
-  //   fetch('http://89.38.131.46:1808/api/free_tables/')
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       setExistData(data);
-  //     });
-  // }, [])
+  useEffect(() => {
+    fetch('http://89.38.131.46:1808/api/all_tables/')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setExistData(data);
+      });
+  }, [])
 
-  // console.log(existData)
+  console.log(existData)
+
+  //http://89.38.131.46:1808/api/all_tables/
 
   const [showWind, setShowWind] = useState(false)
   const [dataFree, setDataFree] = useState()
@@ -37,122 +39,11 @@ function Home() {
   const PotentialClientsTables = [{num: 1 ,client: "Khayot Tangirov", whenMoves: "11.05.2023", number: "+998 90 000 00 00",  img: imgFlat}]
 
 
-  const newsBlocksData = [
-    {
-      name: 'Xonsaroy',
-      img: imgDev,
-      id: 1,
-      blocks: [
-        {name: 'А', img: imgBlock, id: 1, 
-        rooms:  [
-          {num: 1, state: 'free', img: imgFlat},
-          {num: 2, state: 'sold', img: imgFlat},
-          {num: 3, state: 'discuss', img: imgFlat},
-          {num: 4, state: 'booked', img: imgFlat}
-        ]
-        }, 
-        {name: 'Б', img: imgBlock, id: 2,
-        rooms:  [
-          {num: 1, state: 'free', img: imgFlat},
-          {num: 2, state: 'sold', img: imgFlat},
-          {num: 3, state: 'discuss', img: imgFlat},
-          {num: 4, state: 'booked', img: imgFlat}
-        ]
-        }, 
-        {name: 'В', img: imgBlock, id: 3,
-        rooms:  [
-          {num: 1, state: 'free', img: imgFlat},
-          {num: 2, state: 'sold', img: imgFlat},
-          {num: 3, state: 'discuss', img: imgFlat},
-          {num: 4, state: 'booked', img: imgFlat}
-        ]
-        }, 
-        {name: 'Г', img: imgBlock, id: 4,
-        rooms:  [
-          {num: 1, state: 'free', img: imgFlat},
-          {num: 2, state: 'sold', img: imgFlat},
-          {num: 3, state: 'discuss', img: imgFlat},
-          {num: 4, state: 'booked', img: imgFlat}
-        ]
-        }, 
-        {name: 'Д', img: imgBlock, id: 5,
-        rooms:  [
-          {num: 1, state: 'free', img: imgFlat},
-          {num: 2, state: 'sold', img: imgFlat},
-          {num: 3, state: 'discuss', img: imgFlat},
-          {num: 4, state: 'booked', img: imgFlat}
-        ]
-        }, 
-        {name: 'Е', img: imgBlock, id: 6,
-        rooms:  [
-          {num: 1, state: 'free', img: imgFlat},
-          {num: 2, state: 'sold', img: imgFlat},
-          {num: 3, state: 'discuss', img: imgFlat},
-          {num: 4, state: 'booked', img: imgFlat}
-        ]
-        }],
-  
-    },
-    {
-      name: 'NeonBuild',
-      img: imgDev,
-      id: 2,
-      blocks: [
-        {name: 'А', img: imgBlock, id: 1, 
-        rooms:  [
-          {num: 1, state: 'free', img: imgFlat},
-          {num: 2, state: 'sold', img: imgFlat},
-          {num: 3, state: 'discuss', img: imgFlat},
-          {num: 4, state: 'booked', img: imgFlat}
-        ]
-        }, 
-        {name: 'Б', img: imgBlock, id: 2,
-        rooms:  [
-          {num: 1, state: 'free', img: imgFlat},
-          {num: 2, state: 'sold', img: imgFlat},
-          {num: 3, state: 'discuss', img: imgFlat},
-          {num: 4, state: 'booked', img: imgFlat}
-        ]
-        }, 
-        {name: 'В', img: imgBlock, id: 3,
-        rooms:  [
-          {num: 1, state: 'free', img: imgFlat},
-          {num: 2, state: 'sold', img: imgFlat},
-          {num: 3, state: 'discuss', img: imgFlat},
-          {num: 4, state: 'booked', img: imgFlat}
-        ]
-        }, 
-        {name: 'Г', img: imgBlock, id: 4,
-        rooms:  [
-          {num: 1, state: 'free', img: imgFlat},
-          {num: 2, state: 'sold', img: imgFlat},
-          {num: 3, state: 'discuss', img: imgFlat},
-          {num: 4, state: 'booked', img: imgFlat}
-        ]
-        }, 
-        {name: 'Д', img: imgBlock, id: 5,
-        rooms:  [
-          {num: 1, state: 'free', img: imgFlat},
-          {num: 2, state: 'sold', img: imgFlat},
-          {num: 3, state: 'discuss', img: imgFlat},
-          {num: 4, state: 'booked', img: imgFlat}
-        ]
-        }, 
-        {name: 'Е', img: imgBlock, id: 6,
-        rooms:  [
-          {num: 1, state: 'free', img: imgFlat},
-          {num: 2, state: 'sold', img: imgFlat},
-          {num: 3, state: 'discuss', img: imgFlat},
-          {num: 4, state: 'booked', img: imgFlat}
-        ]
-        }],
-    }
-  ];
-  
+
 
   return (
     <div className="Home-wrapper">
-      <SideBar data={newsBlocksData} setSvg={setSvgData}/>
+      <SideBar setSvg={setSvgData}/>
 
       <div className='Content-side'>
         <Header/>     
@@ -171,7 +62,6 @@ function Home() {
                  PotentialClientsTables={PotentialClientsTables}
                  setShowWind={setShowWind}
                  setDataFree={setDataFree}
-                 data={newsBlocksData}
         />
       </div>
 
