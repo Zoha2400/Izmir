@@ -4,7 +4,7 @@ import izmirImg from './assets/izmir.svg'
 import axios from 'axios';
 
 
-function LogIn() {
+function LogIn({loging, setLoging}) {
     
 
     const [credentials, setCredentials] = useState({
@@ -30,13 +30,14 @@ function LogIn() {
 
         };
 
-
         console.log(data)
             axios.post('http://89.38.131.46:1808/login/', data, {
-                withCredentials: true
-              })
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            })
             .then(response => {
-              console.log(response.data);
+                setLoging(response.data);
             })
             .catch(error => {
               console.error('Ошибка:', error);
@@ -76,6 +77,7 @@ function LogIn() {
                     />
                 </label>
                 <br />
+                {loging ?  '' : <p className='redError'>Неверное имя пользователя или пароль!</p>}
                 <button className='send' onClick={handleSubmit}>Вход</button>                
             </div>
         </div>

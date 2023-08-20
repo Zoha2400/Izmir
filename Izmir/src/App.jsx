@@ -13,7 +13,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      {loging ? <Home/> :  <LogIn/>}
+      {loging ? <Home/> :  <LogIn loging={loging} setLoging={setLoging}/>}
 
     </BrowserRouter>
     </>
