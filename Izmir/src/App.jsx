@@ -7,14 +7,13 @@ import LogIn from './LogIn';
 
 function App() {
 
-  const [loging, setLoging] = useState(false);
+  const [loging, setLoging] = useState(true);
 
  
   return (
     <>
     <BrowserRouter>
       {loging ? <Home/> :  <LogIn loging={loging} setLoging={setLoging}/>}
-
     </BrowserRouter>
     </>
   )
