@@ -744,11 +744,11 @@
   }
 
   .locked{
-    background-color: gray;
+    background-color: orange;
   }
 
   .unlocked{
-    background-color: orange;
+    background-color: gray;
   }
 }
 
@@ -771,4 +771,15 @@
     font-weight: 900;
     background-color: rgb(250, 48, 48);
   }
+}
+
+
+.nonExist{
+  display: none;
+}
+
+
+.CloseBtn{
+  background-color: #F0A83B;
+  color: white;
 }

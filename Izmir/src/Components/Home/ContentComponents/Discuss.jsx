@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Discuss({data}) {
+function Discuss({data, setDataFree, setShowDiscuss}) {
   return (
     <div className='DiscussFlats'>
 
@@ -22,11 +22,11 @@ function Discuss({data}) {
                     <tr>
                         <td>{i.num < 10 ? "0" + i.num : i.num}</td>
                         <td>{i.seller}</td>
-                        <td>{i.area}</td>
+                        <td>{i.area}A</td>
                         <td>{i.block}</td>
                         <td>{i.floor}</td>
                         <td>{i.room}</td>
-                        <td className='btnTd'><button className='discussly btn-table'>ПОСМОТРЕТЬ</button></td>       
+                        <td className='btnTd'><button className='discussly btn-table' onClick={() => {setDataFree(i); setShowDiscuss(true)}}>ПОСМОТРЕТЬ</button></td>       
                     </tr>
                 )
             })}

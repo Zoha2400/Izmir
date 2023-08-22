@@ -5,10 +5,13 @@ import Header from './Header';
 import Offers from './Offers';
 import Content from './Content';
 import SideBar from './SideBar';
-import Show from './Show';
+import ShowFree from './ShowFree';
+import ShowDiscuss from './ShowDiscuss';
+import ShowBooked from './ShowBooked';
 import imgFlat from '../../assets/flat.png'
 import imgBlock from '../../assets/A-block.svg'
 import imgDev from '../../assets/dev.svg'
+
 
 function Home() {
 
@@ -29,13 +32,15 @@ function Home() {
   //http://89.38.131.46:1808/api/all_tables/
 
   const [showWind, setShowWind] = useState(false)
+  const [showDiscuss, setShowDiscuss] = useState(false)
+  const [showBooked, setShowBooked] = useState(false)
   const [dataFree, setDataFree] = useState()
   const [svgData, setSvgData] = useState()
   // const FreeTables = [];
   // FreeTables.push(existData.filter((el) => el.status == 'free'));
-  const FreeTables = [{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: "46 m2", terrace: "4 m2", img: imgFlat, cost: 380000000 ,status:'free'},]
-  const DiscussTables = [{num: 1 ,seller: "Khayot Tdangirov", area: "46 m2", block: "E", floor: "3", room:2,  img: imgFlat, status:'discussing'}]
-  const BookedTables = [{num: 1 ,client: "Khayot Tangirov", date: "15.05.2023", paid: '6.000.000', area: '45 m2', block: 'Б', floor: 3, room: 2,  img: imgFlat, status:'booked'}]
+  const FreeTables = [{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: 46, terrace: 4, img: imgFlat, cost: 8000000 ,status:'free'},]
+  const DiscussTables = [{num: 1 ,seller: "Khayot Tangirov", area: 46, block: "E", floor: "3", room:2,  img: imgFlat, cost: 8000000, status:'discussing', time:'00:30'}]
+  const BookedTables = [{num: 1 ,client: "Khayot Tangirov", date: "15.05.2023", paid: '6.000.000',  cost: 8000000 ,area: 45, block: 'Б', floor: 3, room: 2,  img: imgFlat, status:'booked'}]
   const SoldTables = [{num: 1 ,client: "Khayot Tangirov", date: "11.05.2023", dateTill: '11.06.2023', area: '45 m2', block: 'Б', floor: 3, room: 2,  img: imgFlat, status:'sold'}]
   const PotentialClientsTables = [{num: 1 ,client: "Khayot Tangirov", whenMoves: "11.05.2023", number: "+998 90 000 00 00",  img: imgFlat}]
 
@@ -62,12 +67,16 @@ function Home() {
                  SoldTables={SoldTables}
                  PotentialClientsTables={PotentialClientsTables}
                  setShowWind={setShowWind}
+                 setShowDiscuss={setShowDiscuss}
+                 setShowBooked={setShowBooked}
                  setDataFree={setDataFree}
         />
       </div>
 
-     {showWind ?  <Show dataFree={dataFree}/> :  <Show classInfo='disactive'/>}
-     {showWind ?  <div className='darker'  onClick={() => {setShowWind(false)}}></div> :  <div className='darker disactive'></div>}
+     {showWind ?  <ShowFree dataFree={dataFree}/> :  <ShowFree classInfo='disactive'/>}
+     {showDiscuss ? <ShowDiscuss dataFree={dataFree} setShowDiscuss={setShowDiscuss}/> : <ShowDiscuss classInfo='disactive'/>}
+     {showBooked ? <ShowBooked dataFree={dataFree}/> : <ShowBooked classInfo='disactive'/>}
+     {showWind || showDiscuss || showBooked ?  <div className='darker'  onClick={() => {setShowWind(false); setShowDiscuss(false); setShowBooked((false))}}></div> :  <div className='darker disactive'></div>}
 
     </div>
 

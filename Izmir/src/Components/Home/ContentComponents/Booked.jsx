@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Booked({data}) {
+function Booked({data, setDataFree, setShowBooked}) {
   return (
     <div className='BookedFlats'>
     <table>
@@ -29,7 +29,7 @@ function Booked({data}) {
                         <td>{i.block}</td>
                         <td>{i.floor}</td>
                         <td>{i.room}</td>
-                        <td className='btnTd'><button className='bookedbtn btn-table'>ПОСМОТРЕТЬ</button></td>       
+                        <td className='btnTd'><button className='bookedbtn btn-table' onClick={() => {setDataFree(i); setShowBooked(true)}}>ПОСМОТРЕТЬ</button></td>       
                     </tr>
                 )
             })}
