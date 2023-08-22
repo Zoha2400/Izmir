@@ -9,7 +9,7 @@ import PotentialClients from './ContentComponents/PotentialClients'
 import ShowContent from './ContentComponents/ShowContent'
 import { useSelector } from 'react-redux'
 
-function Content({FreeTables, DiscussTables, BookedTables, SoldTables, PotentialClientsTables, setShowWind, setDataFree}) {
+function Content({FreeTables, DiscussTables, BookedTables, SoldTables, PotentialClientsTables, setShowWind, setDataFree, setShowDiscuss, setShowBooked}) {
 
   const data = useSelector(state => state.data.data);
 
@@ -18,8 +18,8 @@ function Content({FreeTables, DiscussTables, BookedTables, SoldTables, Potential
       <div className='Content'>
         <Routes>
                 <Route path="/tables/free" element={<Free data={FreeTables} setShowWind={setShowWind} setDataFree={setDataFree}/>} />
-                <Route path="/tables/discuss" element={<Discuss data={DiscussTables}/>} />
-                <Route path="/tables/booked" element={<Booked data={BookedTables}/>} />
+                <Route path="/tables/discuss" element={<Discuss data={DiscussTables} setShowDiscuss={setShowDiscuss} setDataFree={setDataFree}/>} />
+                <Route path="/tables/booked" element={<Booked data={BookedTables}  setShowBooked={setShowBooked} setDataFree={setDataFree}/>}/>
                 <Route path="/tables/sold" element={<Sold data={SoldTables}/>} />
                 <Route path="/tables/clients" element={<PotentialClients data={PotentialClientsTables}/>} />
 
