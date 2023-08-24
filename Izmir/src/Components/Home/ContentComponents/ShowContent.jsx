@@ -1,17 +1,37 @@
-import React from 'react'
+import {useEffect, useState} from 'react'
 import './ContentComponents.scss'
 import { ReactSVG } from 'react-svg'
-// import {ReactComponent as Logo } from '../../../assets/owSvDveM.svg'
+import SVG from 'svg.js';
 
-function mainShowContent({data}) {
+
+function MainShowContent({ data }) {
+
   return (
-    <div className='main-show-content-wrap'>
-        <div className='main-show-content'>
-           <img src={data.img}/>
-           {/* <ReactSVG src='http://89.38.131.46:1808/static/img/owSvDveM.svg'/> */}
-        </div>
+    <div className="main-show-content-wrap">
+      <div className='svgContainerS'>
+      <img className='svgImgMain' src={data?.img}/>
+      <ReactSVG
+        src={data?.imgOut}
+        className='svgOut'
+        beforeInjection={(svg) => {
+          // Получите все элементы <polyline>
+          const polylines = svg.querySelectorAll('polyline');
+        
+          // Пройдитесь по каждому элементу и добавьте класс и айди
+          polylines.forEach((polyline, index) => {
+            const uniqueId = `svgEl-${index + 1}`;
+            polyline.setAttribute('class', 'svgEl');
+            polyline.setAttribute('id', uniqueId);
+        
+            // Добавьте обработчик события click
+            polyline.addEventListener('click', () => {
+              console.log(`Hello World ${uniqueId}`);
+            });
+          });
+        }}
+      />
+      </div>
     </div>
-  )
+  );
 }
-
-export default mainShowContent
+export default MainShowContent;

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import imgFlat from '../assets/imageFlat.svg'
 import imgBlock from '../assets/A-block.svg'
 import imgDev from '../assets/dev.svg'
+import imgDevOutline from '../assets/owSvDveM.svg'
 
 const developers = [];
 const blocks = [];
@@ -53,54 +54,93 @@ const izmirSlice = createSlice({
             {
               name: 'NeonBuild',
               img: imgDev,
+              imgOut: imgDevOutline,
               id: 1,
               blocks: [
-                {name: 'А', img: imgBlock, id: 1, 
-                rooms:  [
-                  {num: 1, state: 'free', img: imgFlat},
-                  {num: 2, state: 'sold', img: imgFlat},
-                  {num: 3, state: 'discuss', img: imgFlat},
-                  {num: 4, state: 'booked', img: imgFlat}
-                ]
+                {name: 'А', id: 1, 
+                floors:[{
+                  num: 1,
+                  img: imgBlock,
+                  rooms:  [
+                    {num: 1, state: 'free', img: imgBlock},
+                    {num: 2, state: 'sold', img: imgBlock},
+                    {num: 3, state: 'discuss', img: imgBlock},
+                    {num: 4, state: 'booked', img: imgBlock}
+                  ]
+                },
+                {
+                  num: 2,
+                  img: imgBlock,
+                  rooms:  [
+                    {num: 1, state: 'free', img: imgBlock},
+                    {num: 2, state: 'sold', img: imgBlock},
+                    {num: 3, state: 'discuss', img: imgBlock},
+                    {num: 4, state: 'booked', img: imgBlock}
+                  ]
+                },
+                {
+                  num: 3,
+                  img: imgBlock,
+                  rooms:  [
+                    {num: 1, state: 'free', img: imgBlock},
+                    {num: 2, state: 'sold', img: imgBlock},
+                    {num: 3, state: 'discuss', img: imgBlock},
+                    {num: 4, state: 'booked', img: imgBlock}
+                  ]
+                },
+                {
+                  num: 4,
+                  img: imgBlock,
+                  rooms:  [
+                    {num: 1, state: 'free', img: imgBlock},
+                    {num: 2, state: 'sold', img: imgBlock},
+                    {num: 3, state: 'discuss', img: imgBlock},
+                    {num: 4, state: 'booked', img: imgBlock}
+                  ]
+                }  
+               ]
                 }, 
-                {name: 'Б', img: imgBlock, id: 2,
-                rooms:  [
-                  {num: 1, state: 'free', img: imgFlat},
-                  {num: 2, state: 'sold', img: imgFlat},
-                  {num: 3, state: 'discuss', img: imgFlat},
-                  {num: 4, state: 'booked', img: imgFlat}
-                ]
-                }, 
-                {name: 'В', img: imgBlock, id: 3,
-                rooms:  [
-                  {num: 1, state: 'free', img: imgFlat},
-                  {num: 2, state: 'sold', img: imgFlat},
-                  {num: 3, state: 'discuss', img: imgFlat},
-                  {num: 4, state: 'booked', img: imgFlat}
-                ]
-                }, 
-                {name: 'Г', img: imgBlock, id: 4,
-                rooms:  [
-                  {num: 1, state: 'free', img: imgFlat},
-                  {num: 2, state: 'sold', img: imgFlat},
-                  {num: 3, state: 'discuss', img: imgFlat},
-                  {num: 4, state: 'booked', img: imgFlat}
-                ]
-                }, 
-                {name: 'Д', img: imgBlock, id: 5,
-                rooms:  [
-                  {num: 1, state: 'free', img: imgFlat},
-                  {num: 2, state: 'sold', img: imgFlat},
-                  {num: 3, state: 'discuss', img: imgFlat},
-                  {num: 4, state: 'booked', img: imgFlat}
-                ]
-                }, 
-                {name: 'Е', img: imgBlock, id: 6,
-                rooms:  [
-                  {num: 1, state: 'free', img: imgFlat},
-                  {num: 2, state: 'sold', img: imgFlat},
-                  {num: 3, state: 'discuss', img: imgFlat},
-                  {num: 4, state: 'booked', img: imgFlat}
+                {name: 'B', id: 2, 
+                  floors:[{
+                    num: 1,
+                    img: imgBlock,
+                    rooms:  [
+                      {num: 1, state: 'free', img: imgBlock},
+                      {num: 2, state: 'sold', img: imgBlock},
+                      {num: 3, state: 'discuss', img: imgBlock},
+                      {num: 4, state: 'booked', img: imgBlock}
+                    ]
+                  },
+                  {
+                    num: 2,
+                    img: imgBlock,
+                    rooms:  [
+                      {num: 1, state: 'free', img: imgBlock},
+                      {num: 2, state: 'sold', img: imgBlock},
+                      {num: 3, state: 'discuss', img: imgBlock},
+                      {num: 4, state: 'booked', img: imgBlock}
+                    ]
+                  },
+                  {
+                    num: 3,
+                    img: imgBlock,
+                    rooms:  [
+                      {num: 1, state: 'free', img: imgBlock},
+                      {num: 2, state: 'sold', img: imgBlock},
+                      {num: 3, state: 'discuss', img: imgBlock},
+                      {num: 4, state: 'booked', img: imgBlock}
+                    ]
+                  },
+                  {
+                    num: 4,
+                    img: imgBlock,
+                    rooms:  [
+                      {num: 1, state: 'free', img: imgBlock},
+                      {num: 2, state: 'sold', img: imgBlock},
+                      {num: 3, state: 'discuss', img: imgBlock},
+                      {num: 4, state: 'booked', img: imgBlock}
+                    ]
+                  }  
                 ]
                 }],
             }

@@ -39,11 +39,11 @@ function Content({FreeTables, DiscussTables, BookedTables, SoldTables, Potential
               
               {data.map((build) =>
               build.blocks.map((block) =>
-                block.rooms.map((room) => (
+                block.floors.map((floor) => (
                   <Route
-                    key={`${build.name}-${block.name}-${room.num}`}
-                    path={`/${build.name}/${block.name}/${room.num}`}
-                    element={<ShowContent data={room} />}
+                    key={`${build.name}-${block.name}-${floor.num}`}
+                    path={`/${build.name}/${block.name}/${floor.num}`}
+                    element={<ShowContent data={floor} />}
                   />
                 ))
               )

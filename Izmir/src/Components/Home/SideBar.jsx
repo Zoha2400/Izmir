@@ -60,7 +60,7 @@ function SideBar({setSvg}) {
         <div className='blocks-wrapper'>
          <div className="blocks">
           {newsBlocksData.find((news) => news.name === selectedNews).blocks.map((block) => (
-             <NavLink to={`/${selectedNews}/${block.name}`} activeClassName="active">
+             <NavLink to={`/${selectedNews}/${block.name}/1`} activeClassName="active">
               <button
                 key={block.name}
                 className={`block-button`}
@@ -81,10 +81,10 @@ function SideBar({setSvg}) {
           {newsBlocksData
           .find((news) => news.name === selectedNews)
           .blocks.find((block) => block.name === selectedBlock)
-          .rooms.map((room) => (
-            <NavLink to={`/${selectedNews}/${selectedBlock}/${room.num}`} activeClassName="active" key={room.num}>
+          .floors.map((floor) => (
+            <NavLink to={`/${selectedNews}/${selectedBlock}/${floor.num}`} activeClassName="active" key={floor.num}>
               <div className={`room`}>
-                {room.num}
+                {floor.num}
               </div>
             </NavLink>
           ))
