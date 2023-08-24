@@ -1,9 +1,9 @@
-import React from 'react'
+import {useState} from 'react'
 import './Home.scss'
 import Dropdwm from './Drpopdwn';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function Header({setInpText}) {
 
     const kom = ['1 Kom', '2 Kom', '3 Kom']
     const etj = ['1 etaj', '2 etaj', '3 etaj']
@@ -11,7 +11,7 @@ function Header() {
   return (
   <div className="header-wrapper">
     <div className="header">
-     <input type="text" className="name-input" placeholder="Имя Фамилия" />
+     <input type="text" onChange={(e) => setInpText(e.target.value)} className="name-input" placeholder="Имя Фамилия" />
       <div className='dropdowns-btns'>
         <Dropdwm nameDiv={'Ком.'} array={kom}/>
         <Dropdwm nameDiv={'Этаж'} array={etj}/>

@@ -11,7 +11,7 @@ import ShowBooked from './ShowBooked';
 import imgFlat from '../../assets/flat.png'
 import imgBlock from '../../assets/A-block.svg'
 import imgDev from '../../assets/dev.svg'
-
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Home() {
 
@@ -44,15 +44,20 @@ function Home() {
   const SoldTables = [{num: 1 ,client: "Khayot Tangirov", date: "11.05.2023", dateTill: '11.06.2023', area: '45 m2', block: 'Б', floor: 3, room: 2,  img: imgFlat, status:'sold'}]
   const PotentialClientsTables = [{num: 1 ,client: "Khayot Tangirov", whenMoves: "11.05.2023", number: "+998 90 000 00 00",  img: imgFlat}]
 
+  const navigate = useNavigate()
+  const [inpText, setInpText] = useState('');
 
-
+  if(inpText != '' && location.pathname != '/search'){
+    navigate('/search');
+  }
 
   return (
     <div className="Home-wrapper">
       <SideBar setSvg={setSvgData}/>
 
       <div className='Content-side'>
-        <Header/>     
+        <Header setInpText={setInpText}/>   
+          
         <Offers
                   fl={FreeTables.length}
                   dl={DiscussTables.length}

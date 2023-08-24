@@ -8,6 +8,7 @@ import Sold from './ContentComponents/Sold'
 import PotentialClients from './ContentComponents/PotentialClients'
 import ShowContent from './ContentComponents/ShowContent'
 import { useSelector } from 'react-redux'
+import SearchResult from './ContentComponents/SearchResult'
 
 function Content({FreeTables, DiscussTables, BookedTables, SoldTables, PotentialClientsTables, setShowWind, setDataFree, setShowDiscuss, setShowBooked}) {
 
@@ -49,7 +50,7 @@ function Content({FreeTables, DiscussTables, BookedTables, SoldTables, Potential
               )
              )}
 
-              
+            <Route path='search' element={<SearchResult/>}/>
         </Routes>
       </div>
     </div>
