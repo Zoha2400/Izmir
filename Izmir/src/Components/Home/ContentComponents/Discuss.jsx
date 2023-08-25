@@ -20,8 +20,8 @@ function Discuss({data, setDataFree, setShowDiscuss}) {
             {data.map((i) => {
                 return(
                     <tr>
-                        <td>{i.num < 10 ? "0" + i.num : i.num}</td>
-                        <td>{i.seller}</td>
+                        <td>{+i.number < 10 ? "0" + +i.number : +i.number}</td>
+                        <td>{`${i.name} - ${i.surname}`}</td>
                         <td>{i.area}A</td>
                         <td>{i.block}</td>
                         <td>{i.floor}</td>

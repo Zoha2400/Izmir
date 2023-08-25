@@ -1,3 +1,35 @@
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+      width: 7px;
+    background: $background-color;
+    border-radius: 5px;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+    border-radius: 5px;
+  }
+}
+
+body{
+  @include scrollbars(7px, black, #f8f7f8);
+}
+
+
 .Title{
     width: 930px;
     font-size: 14px;
@@ -252,3 +284,10 @@ table {
   }
 }
 
+.FreeLyFlats{
+  width: 100%;
+  height: 600px;
+  overflow-x: auto;
+  padding: 5px;
+  @include scrollbars(3px, rgb(228, 228, 228), #ffffff);
+}

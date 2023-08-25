@@ -1,3 +1,37 @@
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+      width: 7px;
+    background: $background-color;
+    border-radius: 5px;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+    border-radius: 5px;
+  }
+}
+
+body{
+  @include scrollbars(7px, black, #f8f7f8);
+}
+
+
+
+
 .Home-wrapper{
 	display: flex;
 	justify-content: space-between;
@@ -843,4 +877,14 @@
 .CloseBtn{
   background-color: #F0A83B;
   color: white;
+}
+
+
+.ShowWindowFlat{
+  overflow-x: auto;
+  @include scrollbars(0px, rgb(228, 228, 228), #ffffff);
+}
+
+.btnFormBook{
+  padding-top: 10px;
 }

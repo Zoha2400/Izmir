@@ -79,8 +79,8 @@ function Home() {
 
   // const FreeTables = [{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: 46, terrace: 4, img: imgFlat, cost: 8000000 ,status:'free'},]
   const FreeTables = mainList.filter(el => el.status == 'free');
-  const DiscussTables = [{num: 1 ,seller: "Khayot Tangirov", area: 46, block: "E", floor: "3", room:2,  img: imgFlat, cost: 8000000, status:'discussing', time:'00:30'}]
-  const BookedTables = [{num: 1 ,client: "Khayot Tangirov", date: "15.05.2023", paid: '6.000.000',  cost: 8000000 ,area: 45, block: 'Б', floor: 3, room: 2,  img: imgFlat, status:'booked'}]
+  const DiscussTables =  mainList.filter(el => el.status == 'discussion');
+  const BookedTables = mainList.filter(el => el.status == 'booked');
   const SoldTables = [{num: 1 ,client: "Khayot Tangirov", date: "11.05.2023", dateTill: '11.06.2023', area: '45 m2', block: 'Б', floor: 3, room: 2,  img: imgFlat, status:'sold'}]
   const PotentialClientsTables = [{num: 1 ,client: "Khayot Tangirov", whenMoves: "11.05.2023", number: "+998 90 000 00 00",  img: imgFlat}]
 

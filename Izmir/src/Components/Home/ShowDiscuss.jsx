@@ -18,6 +18,7 @@ function ShowDiscuss({classInfo, dataFree, setShowDiscuss}) {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+  const cost = +(dataFree?.price) * parseFloat(+dataFree?.area.replace(/[^\d.]/g, '')).toFixed(0);
 
   const selectDiscount = (discount) => {
     setSelectedDiscount(discount);
@@ -28,7 +29,7 @@ function ShowDiscuss({classInfo, dataFree, setShowDiscuss}) {
       <div className={`ShowWindowFlat-wrapper ${classInfo} ${imageFull ? 'showBigWrap' : ''}`}>
         <div className='ShowWindowFlat'>
         <section className='upSect'>
-          <h1>{dataFree?.area}A</h1>
+          <h1>{dataFree?.area}</h1>
           <button onClick={toggleLock} className={locked ? 'locked' : 'unlocked'}>
             {locked ?  <FontAwesomeIcon icon={faLock}/> : <FontAwesomeIcon icon={faUnlock}/>}
           </button>
@@ -36,15 +37,15 @@ function ShowDiscuss({classInfo, dataFree, setShowDiscuss}) {
         <p className='shortInfo'>
           {dataFree?.room}х ком. {dataFree?.floor}-ЭТАЖ | {dataFree?.block}-БЛОК
         </p>
-        <img src={dataFree?.img} className={imageFull ? 'showBig' : ''} onClick={() => {setImageFull(!imageFull)}}/>
+        <img src={'http://89.38.131.46:1808/' + dataFree?.img} className={imageFull ? 'showBig' : ''} onClick={() => {setImageFull(!imageFull)}}/>
 
         <div className={imageFull ? 'nonExist': ''}>
         <span>СТОИМОСТЬ</span>
-          <p className='cost'><span>{dataFree?.cost * dataFree?.area}</span> USZ</p>
+          <p className='cost'><span>{cost}</span> USZ</p>
           <span>8 000 000 UZS за м2</span>
           <hr/>
           <span>Продавец</span>
-          <p className='cost'><span>{dataFree?.seller}</span></p>
+          <p className='cost'><span>{dataFree?.name}</span></p>
           <span>{dataFree?.time} назад</span>
 
         </div>
