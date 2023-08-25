@@ -167,6 +167,35 @@ table {
   fill: rgb(83, 255, 83);
 }
 
-#svgEl-1{
-  fill: red;
+
+.searchResult{
+  width: 100%;
+  height: 630px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p{
+    padding: 15px;
+    color: gray;
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+
+.svgContainerF{
+  width: 100% !important;
+  height: 100%;
+
+
+  .svgImgMain{
+    position: absolute;
+    z-index: -1;
+  }
+  img{
+    height: 100%;
+    padding: 0;
+    height: auto;
+  }
 }

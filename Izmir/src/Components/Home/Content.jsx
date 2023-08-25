@@ -9,8 +9,9 @@ import PotentialClients from './ContentComponents/PotentialClients'
 import ShowContent from './ContentComponents/ShowContent'
 import { useSelector } from 'react-redux'
 import SearchResult from './ContentComponents/SearchResult'
+import ShowFloor from './ContentComponents/ShowFloor'
 
-function Content({FreeTables, DiscussTables, BookedTables, SoldTables, PotentialClientsTables, setShowWind, setDataFree, setShowDiscuss, setShowBooked}) {
+function Content({FreeTables, DiscussTables, BookedTables, SoldTables, PotentialClientsTables, setShowWind, setDataFree, setShowDiscuss, setShowBooked, setInpText, inpText}) {
 
   const data = useSelector(state => state.data.data);
 
@@ -44,13 +45,13 @@ function Content({FreeTables, DiscussTables, BookedTables, SoldTables, Potential
                   <Route
                     key={`${build.name}-${block.name}-${floor.num}`}
                     path={`/${build.name}/${block.name}/${floor.num}`}
-                    element={<ShowContent data={floor} />}
+                    element={<ShowFloor data={floor} />}
                   />
                 ))
               )
              )}
 
-            <Route path='search' element={<SearchResult/>}/>
+            <Route path='search' element={<SearchResult inpText={inpText}/>}/>
         </Routes>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import imgFlat from '../assets/imageFlat.svg'
+import Ainside from '../assets/Ains.svg'
 import imgBlock from '../assets/A-block.svg'
 import imgDev from '../assets/dev.svg'
 import imgDevOutline from '../assets/owSvDveM.svg'
@@ -57,10 +57,11 @@ const izmirSlice = createSlice({
               imgOut: imgDevOutline,
               id: 1,
               blocks: [
-                {name: 'А', id: 1, 
+                {name: 'А', id: 1,
                 floors:[{
                   num: 1,
-                  img: imgBlock,
+                  img: Ainside,
+                  imgOut: imgBlock,
                   rooms:  [
                     {num: 1, state: 'free', img: imgBlock},
                     {num: 2, state: 'sold', img: imgBlock},
@@ -70,7 +71,8 @@ const izmirSlice = createSlice({
                 },
                 {
                   num: 2,
-                  img: imgBlock,
+                  img: Ainside,
+                  imgOut: imgBlock,
                   rooms:  [
                     {num: 1, state: 'free', img: imgBlock},
                     {num: 2, state: 'sold', img: imgBlock},
@@ -80,7 +82,8 @@ const izmirSlice = createSlice({
                 },
                 {
                   num: 3,
-                  img: imgBlock,
+                  img: Ainside,
+                  imgOut: imgBlock,
                   rooms:  [
                     {num: 1, state: 'free', img: imgBlock},
                     {num: 2, state: 'sold', img: imgBlock},
@@ -90,7 +93,8 @@ const izmirSlice = createSlice({
                 },
                 {
                   num: 4,
-                  img: imgBlock,
+                  img: Ainside,
+                  imgOut: imgBlock,
                   rooms:  [
                     {num: 1, state: 'free', img: imgBlock},
                     {num: 2, state: 'sold', img: imgBlock},
@@ -103,7 +107,8 @@ const izmirSlice = createSlice({
                 {name: 'B', id: 2, 
                   floors:[{
                     num: 1,
-                    img: imgBlock,
+                    img: Ainside,
+                    imgOut: imgBlock,
                     rooms:  [
                       {num: 1, state: 'free', img: imgBlock},
                       {num: 2, state: 'sold', img: imgBlock},
@@ -113,7 +118,8 @@ const izmirSlice = createSlice({
                   },
                   {
                     num: 2,
-                    img: imgBlock,
+                    img: Ainside,
+                    imgOut: imgBlock,
                     rooms:  [
                       {num: 1, state: 'free', img: imgBlock},
                       {num: 2, state: 'sold', img: imgBlock},
@@ -123,7 +129,8 @@ const izmirSlice = createSlice({
                   },
                   {
                     num: 3,
-                    img: imgBlock,
+                    img: Ainside,
+                    imgOut: imgBlock,
                     rooms:  [
                       {num: 1, state: 'free', img: imgBlock},
                       {num: 2, state: 'sold', img: imgBlock},
@@ -133,7 +140,8 @@ const izmirSlice = createSlice({
                   },
                   {
                     num: 4,
-                    img: imgBlock,
+                    img: Ainside,
+                    imgOut: imgBlock,
                     rooms:  [
                       {num: 1, state: 'free', img: imgBlock},
                       {num: 2, state: 'sold', img: imgBlock},

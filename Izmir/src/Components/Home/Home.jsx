@@ -75,6 +75,8 @@ function Home() {
                  setShowDiscuss={setShowDiscuss}
                  setShowBooked={setShowBooked}
                  setDataFree={setDataFree}
+                 setInpText={setInpText}
+                 inpText={ inpText }
         />
       </div>
 
