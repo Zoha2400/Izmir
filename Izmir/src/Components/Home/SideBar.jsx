@@ -5,9 +5,15 @@ import './Home.scss'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-function SideBar({setSvg}) {
+function SideBar({setSvg, dataAll}) {
 
-  const data = useSelector(state => state.data.data);
+  const data = dataAll;
+  let pathname;
+  for(let i = 0; i < data.length; i++){
+    if(i == 0){
+      pathname = data[i].pathname;
+    }
+  }
 
   const newsBlocksData = data;
 
@@ -34,8 +40,8 @@ function SideBar({setSvg}) {
 
   useEffect(() => {
     if (data[0]) {
-      navigate(`/${data[0].name}`);
-      setSelectedNews(data[0].name);
+      navigate(`/${pathname}`);
+      setSelectedNews(data[0].pathname);
     }
   }, []);
 
@@ -44,14 +50,14 @@ function SideBar({setSvg}) {
     <div className="side-bar">
       
     <div className="ico">
-      <Link to={`${data[0].name}`}><img src={izmirIco} alt="icon"/></Link>
+      <Link to={`${pathname}`}><img src={izmirIco} alt="icon"/></Link>
     </div>
 
       <div className="dropdown-container">
         <select value={selectedNews} className='dropdown-header' onChange={handleOptionClick}>
           {newsBlocksData.map((news) => (
-            <option key={news.name} value={news.name}>
-              {news.name}
+            <option key={news.pathname} value={news.pathname}>
+              {news.pathname}
             </option>
           ))}
         </select>
@@ -59,7 +65,7 @@ function SideBar({setSvg}) {
       {selectedNews && (
         <div className='blocks-wrapper'>
          <div className="blocks">
-          {newsBlocksData.find((news) => news.name === selectedNews).blocks.map((block) => (
+          {newsBlocksData.find((news) => news.pathname === selectedNews).blocks.map((block) => (
              <NavLink to={`/${selectedNews}/${block.name}/1`} activeClassName="active">
               <button
                 key={block.name}
@@ -79,7 +85,7 @@ function SideBar({setSvg}) {
         <div className="rooms">
           <div className="room-list">
           {newsBlocksData
-          .find((news) => news.name === selectedNews)
+          .find((news) => news.pathname === selectedNews)
           .blocks.find((block) => block.name === selectedBlock)
           .floors.map((floor) => (
             <NavLink to={`/${selectedNews}/${selectedBlock}/${floor.num}`} activeClassName="active" key={floor.num}>

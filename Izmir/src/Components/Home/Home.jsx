@@ -64,13 +64,15 @@ function Home() {
    
   //  FreeTables.push(data.data?.blocks?.floors?.rooms.filter(el => {el.status === 'free'}))
 
-  let mainList = [];
+  let dataAll = [];
+  let RoomMainList = [];
 
   dataS?.data.forEach((el) => {
+    dataAll.push(el);
     el.blocks.forEach((b) => {
       b.floors.forEach((f) => {
         f.rooms.forEach((r) => {
-          mainList.push(r);
+          RoomMainList.push(r);
         });
       });
     });
@@ -78,10 +80,10 @@ function Home() {
   
 
   // const FreeTables = [{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: 46, terrace: 4, img: imgFlat, cost: 8000000 ,status:'free'},]
-  const FreeTables = mainList.filter(el => el.status == 'free');
-  const DiscussTables =  mainList.filter(el => el.status == 'discussion');
-  const BookedTables = mainList.filter(el => el.status == 'booked');
-  const SoldTables = [{num: 1 ,client: "Khayot Tangirov", date: "11.05.2023", dateTill: '11.06.2023', area: '45 m2', block: 'Б', floor: 3, room: 2,  img: imgFlat, status:'sold'}]
+  const FreeTables = RoomMainList.filter(el => el.status == 'free');
+  const DiscussTables =  RoomMainList.filter(el => el.status == 'discussion');
+  const BookedTables = RoomMainList.filter(el => el.status == 'booked');
+  const SoldTables =  RoomMainList.filter(el => el.status == 'sold');
   const PotentialClientsTables = [{num: 1 ,client: "Khayot Tangirov", whenMoves: "11.05.2023", number: "+998 90 000 00 00",  img: imgFlat}]
 
   const navigate = useNavigate()
@@ -93,7 +95,7 @@ function Home() {
 
   return (
     <div className="Home-wrapper">
-      <SideBar setSvg={setSvgData}/>
+      <SideBar setSvg={setSvgData} dataAll={dataAll}/>
 
       <div className='Content-side'>
         <Header setInpText={setInpText}/>   

@@ -12,6 +12,9 @@ function ShowBooked({classInfo, dataFree}) {
     setLocked(!locked);
   };
 
+  const cost = +(dataFree?.price) * parseFloat(+dataFree?.area.replace(/[^\d.]/g, '')).toFixed(0);
+
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDiscount, setSelectedDiscount] = useState(100);
 
@@ -43,11 +46,11 @@ function ShowBooked({classInfo, dataFree}) {
         <p className='shortInfo'>
           {dataFree?.room}х ком. {dataFree?.floor}-ЭТАЖ | {dataFree?.block}-БЛОК
         </p>
-        <img src={dataFree?.img} className={imageFull ? 'showBig' : ''} onClick={() => {setImageFull(!imageFull)}}/>
+        <img src={'http://89.38.131.46:1808/' + dataFree?.img} className={imageFull ? 'showBig' : ''} onClick={() => {setImageFull(!imageFull)}}/>
 
         <div className={imageFull ? 'nonExist': ''}>
         <span>СТОИМОСТЬ</span>
-          <p className='cost'><span>{dataFree?.cost * dataFree?.area}</span> USZ</p>
+          <p className='cost'><span>{cost}</span> USZ</p>
           <span>8 000 000 UZS за м2</span>
           <hr/>
           <span>Продавец</span>
@@ -71,9 +74,10 @@ function ShowBooked({classInfo, dataFree}) {
               </div>
             )}
           </div>
+          
         </div>
 
-
+                    
 
         </div>
         <div className={imageFull ? 'nonExist' : 'btnFormBook'}>

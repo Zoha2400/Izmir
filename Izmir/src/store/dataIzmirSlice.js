@@ -12,7 +12,7 @@ const izmirSlice = createSlice({
     initialState: {
         data: [
             {
-              name: 'NeonBuild',
+              name: 'NeomTower',
               img: imgDev,
               imgOut: imgDevOutline,
               id: 1,

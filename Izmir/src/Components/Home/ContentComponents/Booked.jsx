@@ -21,10 +21,10 @@ function Booked({data, setDataFree, setShowBooked}) {
             {data.map((i) => {
                 return(
                     <tr>
-                        <td>{i.num < 10 ? "0" + i.num : i.num}</td>
-                        <td>{i.client}</td>
+                        <td>{+i.number < 10 ? "0" + +i.number : +i.number}</td>
+                        <td>{i.name}</td>
                         <td>{i.date}</td>
-                        <td>{i.paid}</td>
+                        <td> - </td>
                         <td>{i.area}</td>
                         <td>{i.block}</td>
                         <td>{i.floor}</td>
