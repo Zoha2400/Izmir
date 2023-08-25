@@ -11,17 +11,17 @@ import { fetchData } from './store/dataFetchSlice';
 
 function App() {
 
-  const dispatch = useDispatch();
-  const data = useSelector(state => state.dataFetch.data)
+  // const dispatch = useDispatch();
+  // const data = useSelector(state => state.dataFetch.data)
 
-  useEffect(() => {
-    dispatch(fetchData());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchData());
+  // }, [dispatch]);
 
-  useEffect(() => {
-    // Когда данные обновляются, выведем их в консоль
-    console.log(data);
-  }, [data]);
+  // useEffect(() => {
+  //   // Когда данные обновляются, выведем их в консоль
+  //   console.log(data);
+  // }, [data]);
 
 
   const [loging, setLoging] = useState(true);

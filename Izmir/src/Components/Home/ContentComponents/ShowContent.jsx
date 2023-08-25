@@ -5,7 +5,6 @@ import SVG from 'svg.js';
 
 
 function MainShowContent({ data }) {
-
   return (
     <div className="main-show-content-wrap">
       <div className='svgContainerS'>
@@ -15,7 +14,7 @@ function MainShowContent({ data }) {
         className='svgOut'
         beforeInjection={(svg) => {
           // Получите все элементы <polyline>
-          const polylines = svg.querySelectorAll('polyline');
+          const polylines = svg.querySelectorAll('polygon');
         
           // Пройдитесь по каждому элементу и добавьте класс и айди
           polylines.forEach((polyline, index) => {

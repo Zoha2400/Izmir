@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import Ainside from '../assets/Ains.svg'
 import imgBlock from '../assets/A-block.svg'
 import imgDev from '../assets/dev.svg'
-import imgDevOutline from '../assets/owSvDveM.svg'
+import imgDevOutline from '../assets/obshidom.svg'
 
 const developers = [];
 const blocks = [];
