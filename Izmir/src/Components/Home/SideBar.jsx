@@ -15,9 +15,9 @@ function SideBar({setSvg, dataAll}) {
     }
   }
 
-  const newsBlocksData = data;
 
-  const [selectedNews, setSelectedNews] = useState(null);
+
+  const [selectedNews, setSelectedNews] = useState(pathname);
   const [selectedBlock, setSelectedBlock] = useState(null);
   const [selectedRoom, setSelectedRoom] = useState(null);
 
@@ -41,7 +41,7 @@ function SideBar({setSvg, dataAll}) {
   useEffect(() => {
     if (data[0]) {
       navigate(`/${pathname}`);
-      setSelectedNews(data[0].pathname);
+      setSelectedNews(pathname);
     }
   }, []);
 
@@ -55,7 +55,7 @@ function SideBar({setSvg, dataAll}) {
 
       <div className="dropdown-container">
         <select value={selectedNews} className='dropdown-header' onChange={handleOptionClick}>
-          {newsBlocksData.map((news) => (
+          {data.map((news) => (
             <option key={news.pathname} value={news.pathname}>
               {news.pathname}
             </option>
@@ -65,7 +65,7 @@ function SideBar({setSvg, dataAll}) {
       {selectedNews && (
         <div className='blocks-wrapper'>
          <div className="blocks">
-          {newsBlocksData.find((news) => news.pathname === selectedNews).blocks.map((block) => (
+          {data.find((news) => news.pathname === selectedNews).blocks.map((block) => (
              <NavLink to={`/${selectedNews}/${block.name}/1`} activeClassName="active">
               <button
                 key={block.name}
@@ -84,7 +84,7 @@ function SideBar({setSvg, dataAll}) {
       {selectedBlock && (
         <div className="rooms">
           <div className="room-list">
-          {newsBlocksData
+          {data
           .find((news) => news.pathname === selectedNews)
           .blocks.find((block) => block.name === selectedBlock)
           .floors.map((floor) => (

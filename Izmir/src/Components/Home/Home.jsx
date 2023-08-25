@@ -85,6 +85,7 @@ function Home() {
   const BookedTables = RoomMainList.filter(el => el.status == 'booked');
   const SoldTables =  RoomMainList.filter(el => el.status == 'sold');
   const PotentialClientsTables = [{num: 1 ,client: "Khayot Tangirov", whenMoves: "11.05.2023", number: "+998 90 000 00 00",  img: imgFlat}]
+  const searchResult = [];
 
   const navigate = useNavigate()
   const [inpText, setInpText] = useState('');
