@@ -28,7 +28,7 @@ function ShowFree({classInfo, dataFree}) {
 
   const discounts = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
   
-  const cost = dataFree?.cost * dataFree?.area;
+  const cost = +(dataFree?.price) * parseFloat(+dataFree?.area.replace(/[^\d.]/g, '')).toFixed(0);
 
   if(dataFree?.status === 'discuss'){
     setLocked(false);
@@ -129,7 +129,7 @@ function ShowFree({classInfo, dataFree}) {
         <p className='shortInfo'>
           {dataFree?.room}х ком. {dataFree?.floor}-ЭТАЖ | {dataFree?.block}-БЛОК
         </p>
-        <img src={dataFree?.img} className={imageFull ? 'showBig' : ''} onClick={() => {setImageFull(!imageFull)}}/>
+        <img src={'http://89.38.131.46:1808/' + dataFree?.img} className={imageFull ? 'showBig' : ''} onClick={() => {setImageFull(!imageFull)}}/>
 
         <div className={imageFull || buyPage ? 'nonExist infoDiv': 'infoDiv'}>
         <span>СТОИМОСТЬ</span>

@@ -28,6 +28,9 @@ function Content({FreeTables, DiscussTables, BookedTables, SoldTables, Potential
   //   console.log(data);
   // }, [data]);
 
+ 
+
+
 
   return (
          <div className='Content-wrapper'>

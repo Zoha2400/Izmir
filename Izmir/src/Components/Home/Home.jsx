@@ -22,30 +22,31 @@ import axios from 'axios';
 
 function Home() {
 
-  // const [existData, setExistData] = useState('');
-
-  // useEffect(() => {
-  //   fetch('http://89.38.131.46:1808/api/all_tables/')
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       setExistData(data);
-  //     });
-  // }, [])
-
-  
-  const dispatch = useDispatch();
-  const data = useSelector(state => state.dataFetch.data)
+  const [dataS, setDataS] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchData());
-  }, [dispatch]);
+    // Выполняем асинхронный запрос к серверу
+    fetch('http://89.38.131.46:1808/get_all_data')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Устанавливаем данные в состояние, когда они загружены
+        setDataS(data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }, []); // Пустой массив зависимостей означает, что эффект будет выполнен только один раз при монтировании компонента
 
-  // useEffect(() => {
-  //   // Когда данные обновляются, выведем их в консоль
-  //   console.log(data);
-  // }, [data]);
+  // Если данные еще не загружены, показываем сообщение о загрузке
+
+  
+
+  const data = useSelector(state => state.data.data)
 
 
   //http://89.38.131.46:1808/api/all_tables/
@@ -62,10 +63,22 @@ function Home() {
 
    
   //  FreeTables.push(data.data?.blocks?.floors?.rooms.filter(el => {el.status === 'free'}))
-  console.log(data.data?.blocks)
 
+  let mainList = [];
 
-  const FreeTables = [{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: 46, terrace: 4, img: imgFlat, cost: 8000000 ,status:'free'},]
+  dataS?.data.forEach((el) => {
+    el.blocks.forEach((b) => {
+      b.floors.forEach((f) => {
+        f.rooms.forEach((r) => {
+          mainList.push(r);
+        });
+      });
+    });
+  });
+  
+
+  // const FreeTables = [{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: 46, terrace: 4, img: imgFlat, cost: 8000000 ,status:'free'},]
+  const FreeTables = mainList.filter(el => el.status == 'free');
   const DiscussTables = [{num: 1 ,seller: "Khayot Tangirov", area: 46, block: "E", floor: "3", room:2,  img: imgFlat, cost: 8000000, status:'discussing', time:'00:30'}]
   const BookedTables = [{num: 1 ,client: "Khayot Tangirov", date: "15.05.2023", paid: '6.000.000',  cost: 8000000 ,area: 45, block: 'Б', floor: 3, room: 2,  img: imgFlat, status:'booked'}]
   const SoldTables = [{num: 1 ,client: "Khayot Tangirov", date: "11.05.2023", dateTill: '11.06.2023', area: '45 m2', block: 'Б', floor: 3, room: 2,  img: imgFlat, status:'sold'}]
