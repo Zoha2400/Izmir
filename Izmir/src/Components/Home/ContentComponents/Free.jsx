@@ -15,7 +15,6 @@ function Free({data, setShowWind, setDataFree}) {
             <th>Этаж</th>
             <th>Блок</th>
             <th>Площадь</th>
-            <th>Терасса</th>
             <th></th>
           </tr>
         </thead>
@@ -23,13 +22,12 @@ function Free({data, setShowWind, setDataFree}) {
             {data.map((i) => {
                 return(
                     <tr>
-                        <td>{i.num < 10 ? "0" + i.num : i.num}</td>
-                        <td>{i.home}</td>
+                        <td>{+i.number < 10 ? "0" + i.number : i.number}</td>
+                        <td>{i.name}</td>
                         <td>{i.room}</td>
                         <td>{i.floor}</td>
                         <td>{i.block}</td>
                         <td>{i.area}A</td>
-                        <td>{i.terrace} m2</td>
                         <td className='btnTd'><button onClick={() => {setDataFree(i); setShowWind(true)}} className='freely btn-table'>ПОСМОТРЕТЬ</button></td>       
                     </tr>
                 )

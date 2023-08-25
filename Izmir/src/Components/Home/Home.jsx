@@ -12,6 +12,13 @@ import imgFlat from '../../assets/flat.png'
 import imgBlock from '../../assets/A-block.svg'
 import imgDev from '../../assets/dev.svg'
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+
+import { fetchData } from '../../store/dataFetchSlice';
+
+import axios from 'axios';
+
 
 function Home() {
 
@@ -27,6 +34,18 @@ function Home() {
   //     });
   // }, [])
 
+  
+  const dispatch = useDispatch();
+  const data = useSelector(state => state.dataFetch.data)
+
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [dispatch]);
+
+  // useEffect(() => {
+  //   // Когда данные обновляются, выведем их в консоль
+  //   console.log(data);
+  // }, [data]);
 
 
   //http://89.38.131.46:1808/api/all_tables/
@@ -38,6 +57,14 @@ function Home() {
   const [svgData, setSvgData] = useState()
   // const FreeTables = [];
   // FreeTables.push(existData.filter((el) => el.status == 'free'));
+ 
+   // let FreeTables = [];
+
+   
+  //  FreeTables.push(data.data?.blocks?.floors?.rooms.filter(el => {el.status === 'free'}))
+  console.log(data.data?.blocks)
+
+
   const FreeTables = [{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: 46, terrace: 4, img: imgFlat, cost: 8000000 ,status:'free'},]
   const DiscussTables = [{num: 1 ,seller: "Khayot Tangirov", area: 46, block: "E", floor: "3", room:2,  img: imgFlat, cost: 8000000, status:'discussing', time:'00:30'}]
   const BookedTables = [{num: 1 ,client: "Khayot Tangirov", date: "15.05.2023", paid: '6.000.000',  cost: 8000000 ,area: 45, block: 'Б', floor: 3, room: 2,  img: imgFlat, status:'booked'}]

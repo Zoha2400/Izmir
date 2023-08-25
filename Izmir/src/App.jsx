@@ -9,6 +9,9 @@ import LogIn from './LogIn';
 
 import { fetchData } from './store/dataFetchSlice';
 
+import axios from 'axios';
+
+
 function App() {
 
   // const dispatch = useDispatch();
@@ -23,15 +26,15 @@ function App() {
   //   console.log(data);
   // }, [data]);
 
-
   const [loging, setLoging] = useState(true);
 
- 
+
   return (
     <>
     <BrowserRouter>
       {loging ? <Home/> :  <LogIn loging={loging} setLoging={setLoging}/>}
     </BrowserRouter>
+    
     </>
   )
 }

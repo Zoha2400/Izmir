@@ -199,3 +199,56 @@ table {
     height: auto;
   }
 }
+
+
+.formSend{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  grid-gap: 5px;
+
+  .split{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 5px;
+  }
+  
+  input{
+    width: 100%;
+    outline: none;
+    padding: 7px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 30px;
+    border: none;
+    background-color: rgb(226, 226, 226);
+    color: black;
+  }
+
+  .error{
+    background-color: rgb(255, 68, 68);
+    color: white !important;
+  }
+  .error::placeholder{
+    color: white !important;
+  }
+
+  .submit{
+    padding: 5px;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    background-color: #803bf0;
+    color: white;
+  }
+
+  .fillAll{
+    text-align: center;
+    color: red;
+    font-size: 12px;
+    font-weight: 300;
+  }
+}
+
