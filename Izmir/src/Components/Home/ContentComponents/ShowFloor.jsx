@@ -7,9 +7,9 @@ function ShowFloor({ data }) {
   return (
     <div className="main-show-content-wrap">
       <div className='svgContainerF'>
-      <img className='svgImgMain' src={`http://89.38.131.46:1808`+ data?.imgOut}/>
+      <img className='svgImgMain' src={data?.img}/>
       <ReactSVG
-        src={`http://89.38.131.46:1808` + data?.imgOut}
+        src={data?.imgOut}
         onError={(error) => console.error('Ошибка загрузки SVG:', error)}
         className='svgOut'
         beforeInjection={(svg) => {

@@ -13,7 +13,7 @@ import ShowFloor from './ContentComponents/ShowFloor'
 
 import { fetchData } from '../../store/dataFetchSlice';
 
-function Content({FreeTables, DiscussTables, BookedTables, SoldTables, PotentialClientsTables, setShowWind, setDataFree, setShowDiscuss, setShowBooked, setInpText, inpText, dataAll}) {
+function Content({FreeTables, DiscussTables, BookedTables, SoldTables, PotentialClientsTables, setShowWind, setDataFree, setShowDiscuss, setShowBooked, setInpText, inpText}) {
   
   const data = useSelector(state => state.data.data)
   // const dispatch = useDispatch();
@@ -42,26 +42,26 @@ function Content({FreeTables, DiscussTables, BookedTables, SoldTables, Potential
                    <Route path="/tables/sold" element={<Sold data={SoldTables}/>} />
                    <Route path="/tables/clients" element={<PotentialClients data={PotentialClientsTables}/>} />
    
-                   {dataAll.map((build) => {
-                     return(<Route path={`/${build.pathname}`} element={<ShowContent data={build}/>}/>)
+                   {data.map((build) => {
+                     return(<Route path={`/${build.name}`} element={<ShowContent data={build}/>}/>)
                    })}
    
-                   {/* {dataAll.map((build) =>
+                   {data.map((build) =>
                      build.blocks.map((block) => (
                        <Route
                          key={`${build.name}-${block.name}`}
                          path={`/${build.name}/${block.name}`}
                          element={<ShowContent data={block} />}
                        />
-                     )) */}
+                     ))
                    )}
                  
-                 {dataAll.map((build) =>
+                 {data.map((build) =>
                  build.blocks.map((block) =>
                    block.floors.map((floor) => (
                      <Route
-                       key={`${build.pathname}-${block.name}-${floor.num}`}
-                       path={`/${build.pathname}/${block.name}/${floor.num}`}
+                       key={`${build.name}-${block.name}-${floor.num}`}
+                       path={`/${build.name}/${block.name}/${floor.num}`}
                        element={<ShowFloor data={floor} />}
                      />
                    ))

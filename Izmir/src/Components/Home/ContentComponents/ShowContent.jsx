@@ -8,7 +8,7 @@ function MainShowContent({ data }) {
   return (
     <div className="main-show-content-wrap">
       <div className='svgContainerS'>
-      <img className='svgImgMain' src={`http://89.38.131.46:1808` + data?.img}/>
+      <img className='svgImgMain' src={data?.img}/>
       <ReactSVG
         src={data?.imgOut}
         className='svgOut'
