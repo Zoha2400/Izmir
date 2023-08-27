@@ -4,7 +4,7 @@ import { faLock, faUnlock, faChevronDown } from '@fortawesome/free-solid-svg-ico
 import './Home.scss'
 import ShowFreeInput from './ContentComponents/ShowFreeInput';
 
-function ShowFree({classInfo, dataFree}) {
+function ShowFree({classInfo, dataFree, setBuy, setBuyPage, buy, buyPage}) {
 
   const [locked, setLocked] = useState(false);
   const [imageFull, setImageFull] = useState(false);
@@ -40,8 +40,7 @@ function ShowFree({classInfo, dataFree}) {
     setMonth(event.target.value);
   };
 
-  const [buy, setBuy] = useState(false);
-  const [buyPage, setBuyPage] = useState(false);
+  
 
   const [userData, setUserData] = useState({
     lastName: '',
@@ -161,14 +160,14 @@ function ShowFree({classInfo, dataFree}) {
             
             {formed && selectedDiscount == 100 ? (
               <div className='listOfCost'>
-                <p className='cost'>Общая сумма <br/> <span>{cost- (cost/100 * selectedDiscount/10)}</span>UZS</p>
+                <p className='cost'>Общая сумма <br/> <span>{cost- (cost/100 * selectedDiscount/50)}</span>UZS</p>
               </div>
             ) : (
               <div className='listOfCost'>
                 <p className='cost'>Сумма оплаты <span className='spanInBl'>{cost/100 * selectedDiscount} - <span>UZS</span></span></p>
-                <p className='cost'>Общая сумма <span className='spanInBl'>{cost- (cost/100 * selectedDiscount/10)} - <span>UZS</span></span></p>
-                <p className='cost'>Остаток <span className='spanInBl'>{cost- (cost/100 * selectedDiscount/10)-cost/100 * selectedDiscount} - <span>UZS</span></span></p>
-                <p className='cost sellectPercent'><span>{((cost- (cost/100 * selectedDiscount/10)-cost/100 * selectedDiscount)/month).toFixed(0)} - <span>USZ</span></span>             
+                <p className='cost'>Общая сумма <span className='spanInBl'>{cost- (cost/100 * selectedDiscount/50)} - <span>UZS</span></span></p>
+                <p className='cost'>Остаток <span className='spanInBl'>{cost- (cost/100 * selectedDiscount/50)-cost/100 * selectedDiscount} - <span>UZS</span></span></p>
+                <p className='cost sellectPercent'><span>{((cost- (cost/100 * selectedDiscount/50)-cost/100 * selectedDiscount)/month).toFixed(0)} - <span>USZ</span></span>             
                   <select id="monthSelect" value={month} onChange={handleMonthChange}>
                     {Array.from({ length: 12 }, (_, index) => (
                       <option key={index} value={String(index + 1)}>

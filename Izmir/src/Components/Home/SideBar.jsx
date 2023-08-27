@@ -1,5 +1,7 @@
-import {useState, useEffect} from 'react'
+import {React, useState, useEffect} from 'react'
 import izmirIco from '../../assets/izmir.svg'
+import ReactDOM from 'react-dom';
+
 import { BrowserRouter,Outlet, Link, NavLink, Route} from "react-router-dom";
 import './Home.scss'
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +12,7 @@ function SideBar({setSvg, dataAll}) {
   const data = dataAll;
   let pathname;
   for(let i = 0; i < data.length; i++){
-    if(i == 0){
+    if(i === 0){
       pathname = data[i].pathname;
     }
   }
@@ -31,19 +33,24 @@ function SideBar({setSvg, dataAll}) {
   const navigate = useNavigate();
   
 
+
+  useEffect(() => {
+    if (data[0]) {
+      navigate(`/${pathname}`);
+      setSelectedNews(data[0].pathname);
+    }
+  }, []);
+
+
   const handleOptionClick = (event) => {
     const selectedValue = event.target.value;
     setSelectedNews(selectedValue);
     navigate(`/${selectedValue}`);
   };
 
+  console.log(selectedNews);
 
-  useEffect(() => {
-    if (data[0]) {
-      navigate(`/${pathname}`);
-      setSelectedNews(pathname);
-    }
-  }, []);
+
 
 
   return (
@@ -57,30 +64,27 @@ function SideBar({setSvg, dataAll}) {
         <select value={selectedNews} className='dropdown-header' onChange={handleOptionClick}>
           {data.map((news) => (
             <option key={news.pathname} value={news.pathname}>
-              {news.pathname}
+              {news.name}
             </option>
           ))}
         </select>
       </div>
-      {selectedNews && (
         <div className='blocks-wrapper'>
          <div className="blocks">
-          {data.find((news) => news.pathname === selectedNews).blocks.map((block) => (
-             <NavLink to={`/${selectedNews}/${block.name}/1`} activeClassName="active">
+         {selectedNews && data.find((news) => news.pathname === selectedNews).blocks.map((block) => (
+            <NavLink to={`/${selectedNews}/${block.name}/1`} activeClassName="active" key={block.name}>
               <button
-                key={block.name}
                 className={`block-button`}
                 onClick={() => setSelectedBlock(block.name)}
-                >
+              >
                 <span className={`block-letter`}>
                   {block.name}
                 </span>
               </button>
-             </NavLink>
+            </NavLink>
           ))}
          </div>
         </div>
-      )}
       {selectedBlock && (
         <div className="rooms">
           <div className="room-list">

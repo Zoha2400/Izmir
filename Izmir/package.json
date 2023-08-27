@@ -23,6 +23,8 @@
     "react-redux": "^8.1.2",
     "react-router-dom": "^6.14.2",
     "react-svg": "^16.1.22",
+    "react-svg-pan-zoom": "^3.12.1",
+    "react-svgmt": "^2.0.2",
     "sass": "^1.64.2",
     "sort-by": "^1.2.0",
     "svg.js": "^2.7.1"
@@ -35,6 +37,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "react-svg-loader": "^3.0.3",
     "vite": "^4.4.5"
   }
 }
