@@ -7,9 +7,10 @@ function ShowFloor({ data }) {
   return (
     <div className="main-show-content-wrap">
       <div className='svgContainerF'>
-      <img className='svgImgMain' src={data?.img}/>
+      <img className='svgImgMain' src={`http://89.38.131.46:1808`+ data?.imgOut}/>
       <ReactSVG
-        src={data?.imgOut}
+        src={`http://89.38.131.46:1808` + data?.imgOut}
+        onError={(error) => console.error('Ошибка загрузки SVG:', error)}
         className='svgOut'
         beforeInjection={(svg) => {
           // Получите все элементы <polyline>

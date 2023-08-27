@@ -67,6 +67,8 @@ function Home() {
   let dataAll = [];
   let RoomMainList = [];
 
+
+
   dataS?.data.forEach((el) => {
     dataAll.push(el);
     el.blocks.forEach((b) => {
@@ -77,6 +79,8 @@ function Home() {
       });
     });
   });
+
+  console.log(dataAll)
   
 
   // const FreeTables = [{num: 1 ,home: "BoboCity", room: 2, floor:3, block:"Б", area: 46, terrace: 4, img: imgFlat, cost: 8000000 ,status:'free'},]
@@ -86,6 +90,10 @@ function Home() {
   const SoldTables =  RoomMainList.filter(el => el.status == 'sold');
   const PotentialClientsTables = [{num: 1 ,client: "Khayot Tangirov", whenMoves: "11.05.2023", number: "+998 90 000 00 00",  img: imgFlat}]
   const searchResult = [];
+
+
+  const [buy, setBuy] = useState(false);
+  const [buyPage, setBuyPage] = useState(false);
 
   const navigate = useNavigate()
   const [inpText, setInpText] = useState('');
@@ -120,13 +128,14 @@ function Home() {
                  setDataFree={setDataFree}
                  setInpText={setInpText}
                  inpText={ inpText }
+                 dataAll={dataAll}
         />
       </div>
 
-     {showWind ?  <ShowFree dataFree={dataFree}/> :  <ShowFree classInfo='disactive'/>}
+     {showWind ?  <ShowFree dataFree={dataFree} buy={buy} buyPage={buyPage} setBuy={setBuy} setBuyPage={setBuyPage}/> :  <ShowFree classInfo='disactive'/>}
      {showDiscuss ? <ShowDiscuss dataFree={dataFree} setShowDiscuss={setShowDiscuss}/> : <ShowDiscuss classInfo='disactive'/>}
      {showBooked ? <ShowBooked dataFree={dataFree}/> : <ShowBooked classInfo='disactive'/>}
-     {showWind || showDiscuss || showBooked ?  <div className='darker'  onClick={() => {setShowWind(false); setShowDiscuss(false); setShowBooked((false))}}></div> :  <div className='darker disactive'></div>}
+     {showWind || showDiscuss || showBooked ?  <div className='darker'  onClick={() => {setShowWind(false); setShowDiscuss(false); setShowBooked(false); setBuy(false); setBuyPage(false)}}></div> :  <div className='darker disactive'></div>}
 
     </div>
 
